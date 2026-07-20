@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Forbidden{% endblock %}
+{% block content %}
+<div class="py-5 text-center" data-aos="fade-up">
+  <p class="display-6 text-secondary">403</p>
+  <h1 class="h3">Access denied</h1>
+  <p class="text-secondary">You do not have permission to view this resource.</p>
+  <a class="btn btn-outline-primary mt-2" href="{{ url_for('shell.home') }}">Return home</a>
+</div>
+{% endblock %}

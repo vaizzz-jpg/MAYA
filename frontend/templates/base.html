@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}MAYA{% endblock %} | Media Authenticity Analyzer</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+  {% block head %}{% endblock %}
+</head>
+<body class="d-flex flex-column min-vh-100 maya-body">
+
+  <nav class="navbar navbar-expand-lg navbar-dark maya-navbar border-bottom border-secondary-subtle">
+    <div class="container">
+      <a class="navbar-brand fw-semibold tracking-wide" href="{{ url_for('shell.home') }}">
+        <i class="bi bi-shield-check me-1"></i>MAYA
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mayaNav"
+              aria-controls="mayaNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mayaNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'shell.home' %}active{% endif %}"
+               href="{{ url_for('shell.home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Cases</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Reports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Settings</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge text-bg-secondary">Phase 1</span>
+          <a class="btn btn-outline-light btn-sm disabled" href="#" aria-disabled="true">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container flex-grow-1 py-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="border-top py-3 mt-auto maya-footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between small text-secondary">
+      <span>MAYA — Media Authenticity Analyzer</span>
+      <span>Authorized investigative use only · Foundation build</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "baseline_rss_mb": 388.91,
+  "peak_rss_mb": 388.98,
+  "after_rss_mb": 388.98,
+  "delta_rss_mb": 0.07,
+  "estimated_model_mb": 15.46,
+  "samples_mb": [
+    388.91,
+    388.95,
+    388.98
+  ]
+}

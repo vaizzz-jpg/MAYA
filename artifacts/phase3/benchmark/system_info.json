@@ -1,0 +1,12 @@
+{
+  "operating_system": "Windows",
+  "os_release": "Windows-10-10.0.26200-SP0",
+  "cpu": "AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD",
+  "cpu_count_logical": 8,
+  "total_ram_gb": 7.28,
+  "available_ram_gb": 0.44,
+  "python_version": "3.11.9",
+  "pytorch_version": "2.13.0+cpu",
+  "torchvision_version": "0.28.0+cpu",
+  "active_device": "cpu"
+}

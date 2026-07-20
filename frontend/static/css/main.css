@@ -1,0 +1,38 @@
+/* MAYA — minimal presentation overrides (Bootstrap-first). */
+
+:root {
+  --maya-bg: #0f1419;
+  --maya-surface: #171d25;
+  --maya-ink: #e8eef5;
+  --maya-muted: #9aa8b6;
+  --maya-accent: #3d8bfd;
+}
+
+.maya-body {
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(61, 139, 253, 0.18), transparent 60%),
+    radial-gradient(900px 400px at 100% 0%, rgba(40, 80, 120, 0.25), transparent 55%),
+    var(--maya-bg);
+  color: var(--maya-ink);
+}
+
+.maya-navbar,
+.maya-footer {
+  background: rgba(15, 20, 25, 0.92);
+  backdrop-filter: blur(6px);
+}
+
+.maya-hero h1 {
+  letter-spacing: 0.04em;
+}
+
+.text-secondary {
+  color: var(--maya-muted) !important;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--maya-accent);
+  --bs-btn-border-color: var(--maya-accent);
+  --bs-btn-hover-bg: #5a9fff;
+  --bs-btn-hover-border-color: #5a9fff;
+}

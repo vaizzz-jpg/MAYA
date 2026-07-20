@@ -1,0 +1,13 @@
+MAYA EfficientNet-B0 Summary
+============================
+Module type     : EfficientNet
+Total params    : 4,010,110
+Trainable params: 2,562
+Frozen params   : 4,007,548
+
+Classifier:
+  Sequential(
+  (0): Dropout(p=0.2, inplace=True)
+  (1): Linear(in_features=1280, out_features=2, bias=True)
+)
+Device: cpu

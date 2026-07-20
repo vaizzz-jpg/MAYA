@@ -1,0 +1,2273 @@
+{
+  "threshold": 0.5,
+  "positive_class": 1,
+  "class_names": [
+    "REAL",
+    "FAKE"
+  ],
+  "dataset_version": "v1",
+  "checkpoint": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\checkpoints\\best.pt",
+  "n_samples": 160,
+  "metrics": {
+    "accuracy": 0.15,
+    "balanced_accuracy": 0.075,
+    "cohen_kappa": 0.0,
+    "f1": 0.2608695652173913,
+    "false_negative_rate": 0.85,
+    "false_positive_rate": 0.0,
+    "matthews_corrcoef": 0.0,
+    "precision": 1.0,
+    "recall": 0.15,
+    "roc_auc": 0.0,
+    "sensitivity": 0.15,
+    "specificity": 0.0
+  },
+  "confusion": {
+    "tp": 24,
+    "tn": 0,
+    "fp": 0,
+    "fn": 136
+  },
+  "predictions": [
+    {
+      "index": 0,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 68.1009,
+      "raw_probability": [
+        0.6810086965560913,
+        0.3189912438392639
+      ],
+      "positive_class_probability": 0.3189912438392639,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 1,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.7437,
+      "raw_probability": [
+        0.5874370336532593,
+        0.4125629663467407
+      ],
+      "positive_class_probability": 0.4125629663467407,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 2,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 56.6399,
+      "raw_probability": [
+        0.5663992166519165,
+        0.4336007833480835
+      ],
+      "positive_class_probability": 0.4336007833480835,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 3,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 62.5318,
+      "raw_probability": [
+        0.6253182291984558,
+        0.3746817111968994
+      ],
+      "positive_class_probability": 0.3746817111968994,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 4,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 59.5525,
+      "raw_probability": [
+        0.4044749438762665,
+        0.5955250263214111
+      ],
+      "positive_class_probability": 0.5955250263214111,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 5,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.3702,
+      "raw_probability": [
+        0.5137019157409668,
+        0.486298143863678
+      ],
+      "positive_class_probability": 0.486298143863678,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 6,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 64.4358,
+      "raw_probability": [
+        0.6443584561347961,
+        0.3556414842605591
+      ],
+      "positive_class_probability": 0.3556414842605591,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 7,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 61.833,
+      "raw_probability": [
+        0.6183297038078308,
+        0.3816702961921692
+      ],
+      "positive_class_probability": 0.3816702961921692,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 8,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 68.8318,
+      "raw_probability": [
+        0.6883177757263184,
+        0.31168222427368164
+      ],
+      "positive_class_probability": 0.31168222427368164,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 9,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.6006,
+      "raw_probability": [
+        0.5560058951377869,
+        0.4439941346645355
+      ],
+      "positive_class_probability": 0.4439941346645355,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 10,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 68.5317,
+      "raw_probability": [
+        0.6853166818618774,
+        0.3146832585334778
+      ],
+      "positive_class_probability": 0.3146832585334778,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 11,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 67.173,
+      "raw_probability": [
+        0.6717302799224854,
+        0.32826972007751465
+      ],
+      "positive_class_probability": 0.32826972007751465,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 12,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 62.3727,
+      "raw_probability": [
+        0.6237273812294006,
+        0.37627267837524414
+      ],
+      "positive_class_probability": 0.37627267837524414,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 13,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 60.5866,
+      "raw_probability": [
+        0.6058659553527832,
+        0.3941340744495392
+      ],
+      "positive_class_probability": 0.3941340744495392,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 14,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 61.0317,
+      "raw_probability": [
+        0.6103169322013855,
+        0.3896830677986145
+      ],
+      "positive_class_probability": 0.3896830677986145,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 15,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 67.3645,
+      "raw_probability": [
+        0.6736449003219604,
+        0.3263551592826843
+      ],
+      "positive_class_probability": 0.3263551592826843,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 16,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 65.7949,
+      "raw_probability": [
+        0.6579492092132568,
+        0.34205082058906555
+      ],
+      "positive_class_probability": 0.34205082058906555,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 17,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 65.502,
+      "raw_probability": [
+        0.6550201773643494,
+        0.344979852437973
+      ],
+      "positive_class_probability": 0.344979852437973,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 18,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 71.7182,
+      "raw_probability": [
+        0.7171818614006042,
+        0.28281813859939575
+      ],
+      "positive_class_probability": 0.28281813859939575,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 19,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 80.3715,
+      "raw_probability": [
+        0.8037150502204895,
+        0.1962849646806717
+      ],
+      "positive_class_probability": 0.1962849646806717,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 20,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 61.6698,
+      "raw_probability": [
+        0.6166983842849731,
+        0.38330164551734924
+      ],
+      "positive_class_probability": 0.38330164551734924,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 21,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 63.0478,
+      "raw_probability": [
+        0.6304779648780823,
+        0.3695220351219177
+      ],
+      "positive_class_probability": 0.3695220351219177,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 22,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.1236,
+      "raw_probability": [
+        0.5712364315986633,
+        0.4287635385990143
+      ],
+      "positive_class_probability": 0.4287635385990143,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 23,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 55.7124,
+      "raw_probability": [
+        0.4428757131099701,
+        0.5571242570877075
+      ],
+      "positive_class_probability": 0.5571242570877075,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 24,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 60.0455,
+      "raw_probability": [
+        0.600455105304718,
+        0.3995448350906372
+      ],
+      "positive_class_probability": 0.3995448350906372,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 25,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 70.2312,
+      "raw_probability": [
+        0.7023117542266846,
+        0.2976883053779602
+      ],
+      "positive_class_probability": 0.2976883053779602,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 26,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 65.1267,
+      "raw_probability": [
+        0.6512667536735535,
+        0.3487332761287689
+      ],
+      "positive_class_probability": 0.3487332761287689,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 27,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.7912,
+      "raw_probability": [
+        0.537911593914032,
+        0.46208834648132324
+      ],
+      "positive_class_probability": 0.46208834648132324,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 28,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 69.176,
+      "raw_probability": [
+        0.6917595863342285,
+        0.3082404136657715
+      ],
+      "positive_class_probability": 0.3082404136657715,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 29,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 61.0376,
+      "raw_probability": [
+        0.6103755831718445,
+        0.38962435722351074
+      ],
+      "positive_class_probability": 0.38962435722351074,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 30,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.0186,
+      "raw_probability": [
+        0.5701861381530762,
+        0.4298139214515686
+      ],
+      "positive_class_probability": 0.4298139214515686,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 31,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.1095,
+      "raw_probability": [
+        0.571094810962677,
+        0.4289052188396454
+      ],
+      "positive_class_probability": 0.4289052188396454,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 32,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.246,
+      "raw_probability": [
+        0.5724601149559021,
+        0.42753997445106506
+      ],
+      "positive_class_probability": 0.42753997445106506,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 33,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.4634,
+      "raw_probability": [
+        0.5446335077285767,
+        0.45536646246910095
+      ],
+      "positive_class_probability": 0.45536646246910095,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 34,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 50.1018,
+      "raw_probability": [
+        0.5010175704956055,
+        0.4989824593067169
+      ],
+      "positive_class_probability": 0.4989824593067169,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 35,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.922,
+      "raw_probability": [
+        0.5192198157310486,
+        0.48078012466430664
+      ],
+      "positive_class_probability": 0.48078012466430664,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 36,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 55.3273,
+      "raw_probability": [
+        0.44672664999961853,
+        0.5532733798027039
+      ],
+      "positive_class_probability": 0.5532733798027039,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 37,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.7634,
+      "raw_probability": [
+        0.5776342749595642,
+        0.4223657548427582
+      ],
+      "positive_class_probability": 0.4223657548427582,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 38,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 50.5168,
+      "raw_probability": [
+        0.4948316812515259,
+        0.5051683187484741
+      ],
+      "positive_class_probability": 0.5051683187484741,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 39,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 52.554,
+      "raw_probability": [
+        0.4744601249694824,
+        0.5255398154258728
+      ],
+      "positive_class_probability": 0.5255398154258728,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 40,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.0975,
+      "raw_probability": [
+        0.5509749054908752,
+        0.4490251839160919
+      ],
+      "positive_class_probability": 0.4490251839160919,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 41,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.0406,
+      "raw_probability": [
+        0.5804063677787781,
+        0.4195936322212219
+      ],
+      "positive_class_probability": 0.4195936322212219,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 42,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.064,
+      "raw_probability": [
+        0.5806398391723633,
+        0.4193602204322815
+      ],
+      "positive_class_probability": 0.4193602204322815,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 43,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 50.2387,
+      "raw_probability": [
+        0.5023865103721619,
+        0.49761345982551575
+      ],
+      "positive_class_probability": 0.49761345982551575,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 44,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.2817,
+      "raw_probability": [
+        0.5828167796134949,
+        0.4171832799911499
+      ],
+      "positive_class_probability": 0.4171832799911499,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 45,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 53.8646,
+      "raw_probability": [
+        0.4613543450832367,
+        0.5386456847190857
+      ],
+      "positive_class_probability": 0.5386456847190857,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 46,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.5024,
+      "raw_probability": [
+        0.5450239181518555,
+        0.45497608184814453
+      ],
+      "positive_class_probability": 0.45497608184814453,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 47,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 67.5154,
+      "raw_probability": [
+        0.6751537322998047,
+        0.3248463273048401
+      ],
+      "positive_class_probability": 0.3248463273048401,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 48,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 59.242,
+      "raw_probability": [
+        0.5924204587936401,
+        0.40757954120635986
+      ],
+      "positive_class_probability": 0.40757954120635986,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 49,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 62.7093,
+      "raw_probability": [
+        0.6270931959152222,
+        0.3729068636894226
+      ],
+      "positive_class_probability": 0.3729068636894226,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 50,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.0423,
+      "raw_probability": [
+        0.5304226279258728,
+        0.469577431678772
+      ],
+      "positive_class_probability": 0.469577431678772,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 51,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.5511,
+      "raw_probability": [
+        0.5355114936828613,
+        0.4644884169101715
+      ],
+      "positive_class_probability": 0.4644884169101715,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 52,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 50.1347,
+      "raw_probability": [
+        0.49865299463272095,
+        0.501347005367279
+      ],
+      "positive_class_probability": 0.501347005367279,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 53,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.6148,
+      "raw_probability": [
+        0.5561479926109314,
+        0.4438520669937134
+      ],
+      "positive_class_probability": 0.4438520669937134,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 54,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 56.8267,
+      "raw_probability": [
+        0.5682674646377563,
+        0.43173253536224365
+      ],
+      "positive_class_probability": 0.43173253536224365,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 55,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 51.0361,
+      "raw_probability": [
+        0.48963889479637146,
+        0.5103611350059509
+      ],
+      "positive_class_probability": 0.5103611350059509,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 56,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.7434,
+      "raw_probability": [
+        0.5374341011047363,
+        0.46256595849990845
+      ],
+      "positive_class_probability": 0.46256595849990845,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 57,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 52.1642,
+      "raw_probability": [
+        0.5216417908668518,
+        0.4783582091331482
+      ],
+      "positive_class_probability": 0.4783582091331482,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 58,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.9895,
+      "raw_probability": [
+        0.5498949885368347,
+        0.4501050114631653
+      ],
+      "positive_class_probability": 0.4501050114631653,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 59,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.2197,
+      "raw_probability": [
+        0.5721969604492188,
+        0.42780300974845886
+      ],
+      "positive_class_probability": 0.42780300974845886,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 60,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.4595,
+      "raw_probability": [
+        0.5745946764945984,
+        0.4254052937030792
+      ],
+      "positive_class_probability": 0.4254052937030792,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 61,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 62.1557,
+      "raw_probability": [
+        0.6215565204620361,
+        0.37844350934028625
+      ],
+      "positive_class_probability": 0.37844350934028625,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 62,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.5268,
+      "raw_probability": [
+        0.5152681469917297,
+        0.48473185300827026
+      ],
+      "positive_class_probability": 0.48473185300827026,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 63,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.3724,
+      "raw_probability": [
+        0.5337240099906921,
+        0.46627599000930786
+      ],
+      "positive_class_probability": 0.46627599000930786,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 64,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 56.0979,
+      "raw_probability": [
+        0.5609791278839111,
+        0.43902087211608887
+      ],
+      "positive_class_probability": 0.43902087211608887,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 65,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 60.2455,
+      "raw_probability": [
+        0.6024545431137085,
+        0.3975455164909363
+      ],
+      "positive_class_probability": 0.3975455164909363,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 66,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 61.5433,
+      "raw_probability": [
+        0.6154325008392334,
+        0.3845674991607666
+      ],
+      "positive_class_probability": 0.3845674991607666,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 67,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 56.9653,
+      "raw_probability": [
+        0.5696533918380737,
+        0.4303465485572815
+      ],
+      "positive_class_probability": 0.4303465485572815,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 68,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.6216,
+      "raw_probability": [
+        0.5462163686752319,
+        0.45378363132476807
+      ],
+      "positive_class_probability": 0.45378363132476807,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 69,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 51.8154,
+      "raw_probability": [
+        0.4818459451198578,
+        0.5181540250778198
+      ],
+      "positive_class_probability": 0.5181540250778198,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 70,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.4883,
+      "raw_probability": [
+        0.5548834800720215,
+        0.4451165199279785
+      ],
+      "positive_class_probability": 0.4451165199279785,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 71,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.38,
+      "raw_probability": [
+        0.5737999677658081,
+        0.42620009183883667
+      ],
+      "positive_class_probability": 0.42620009183883667,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 72,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 52.7648,
+      "raw_probability": [
+        0.5276481509208679,
+        0.4723518192768097
+      ],
+      "positive_class_probability": 0.4723518192768097,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 73,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 56.4233,
+      "raw_probability": [
+        0.5642333030700684,
+        0.43576672673225403
+      ],
+      "positive_class_probability": 0.43576672673225403,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 74,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 52.6763,
+      "raw_probability": [
+        0.4732373058795929,
+        0.5267626643180847
+      ],
+      "positive_class_probability": 0.5267626643180847,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 75,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 50.4581,
+      "raw_probability": [
+        0.5045809745788574,
+        0.49541908502578735
+      ],
+      "positive_class_probability": 0.49541908502578735,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 76,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.6221,
+      "raw_probability": [
+        0.5462213754653931,
+        0.45377862453460693
+      ],
+      "positive_class_probability": 0.45377862453460693,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 77,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 63.2608,
+      "raw_probability": [
+        0.6326080560684204,
+        0.3673919439315796
+      ],
+      "positive_class_probability": 0.3673919439315796,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 78,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.9837,
+      "raw_probability": [
+        0.5798371434211731,
+        0.4201628267765045
+      ],
+      "positive_class_probability": 0.4201628267765045,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 79,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.205,
+      "raw_probability": [
+        0.5420495271682739,
+        0.4579504430294037
+      ],
+      "positive_class_probability": 0.4579504430294037,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 80,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 61.885,
+      "raw_probability": [
+        0.61885005235672,
+        0.3811500072479248
+      ],
+      "positive_class_probability": 0.3811500072479248,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 81,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.175,
+      "raw_probability": [
+        0.551749587059021,
+        0.4482504427433014
+      ],
+      "positive_class_probability": 0.4482504427433014,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 82,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 51.1447,
+      "raw_probability": [
+        0.48855310678482056,
+        0.5114468336105347
+      ],
+      "positive_class_probability": 0.5114468336105347,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 83,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 62.1473,
+      "raw_probability": [
+        0.6214728355407715,
+        0.3785271644592285
+      ],
+      "positive_class_probability": 0.3785271644592285,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 84,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.6754,
+      "raw_probability": [
+        0.5767542719841003,
+        0.42324572801589966
+      ],
+      "positive_class_probability": 0.42324572801589966,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 85,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.7512,
+      "raw_probability": [
+        0.5875124335289001,
+        0.41248759627342224
+      ],
+      "positive_class_probability": 0.41248759627342224,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 86,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.3511,
+      "raw_probability": [
+        0.5735111236572266,
+        0.42648884654045105
+      ],
+      "positive_class_probability": 0.42648884654045105,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 87,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.2673,
+      "raw_probability": [
+        0.5326727032661438,
+        0.4673272967338562
+      ],
+      "positive_class_probability": 0.4673272967338562,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 88,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 60.072,
+      "raw_probability": [
+        0.6007199287414551,
+        0.39928004145622253
+      ],
+      "positive_class_probability": 0.39928004145622253,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 89,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 62.8567,
+      "raw_probability": [
+        0.6285670399665833,
+        0.37143293023109436
+      ],
+      "positive_class_probability": 0.37143293023109436,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 90,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 62.9596,
+      "raw_probability": [
+        0.6295962333679199,
+        0.37040379643440247
+      ],
+      "positive_class_probability": 0.37040379643440247,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 91,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 50.873,
+      "raw_probability": [
+        0.49127012491226196,
+        0.508729875087738
+      ],
+      "positive_class_probability": 0.508729875087738,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 92,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.5882,
+      "raw_probability": [
+        0.5858815908432007,
+        0.4141184687614441
+      ],
+      "positive_class_probability": 0.4141184687614441,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 93,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 52.9885,
+      "raw_probability": [
+        0.47011515498161316,
+        0.5298848152160645
+      ],
+      "positive_class_probability": 0.5298848152160645,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 94,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.6867,
+      "raw_probability": [
+        0.5168668627738953,
+        0.48313313722610474
+      ],
+      "positive_class_probability": 0.48313313722610474,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 95,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 50.4209,
+      "raw_probability": [
+        0.5042093396186829,
+        0.4957907199859619
+      ],
+      "positive_class_probability": 0.4957907199859619,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 96,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 52.9257,
+      "raw_probability": [
+        0.5292569994926453,
+        0.47074294090270996
+      ],
+      "positive_class_probability": 0.47074294090270996,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 97,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.8369,
+      "raw_probability": [
+        0.5583693981170654,
+        0.44163060188293457
+      ],
+      "positive_class_probability": 0.44163060188293457,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 98,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.2798,
+      "raw_probability": [
+        0.5127980709075928,
+        0.4872019290924072
+      ],
+      "positive_class_probability": 0.4872019290924072,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 99,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.391,
+      "raw_probability": [
+        0.583910346031189,
+        0.4160896837711334
+      ],
+      "positive_class_probability": 0.4160896837711334,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 100,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 53.7426,
+      "raw_probability": [
+        0.46257418394088745,
+        0.5374258160591125
+      ],
+      "positive_class_probability": 0.5374258160591125,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 101,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.1095,
+      "raw_probability": [
+        0.5810949802398682,
+        0.41890501976013184
+      ],
+      "positive_class_probability": 0.41890501976013184,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 102,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.0214,
+      "raw_probability": [
+        0.5302140116691589,
+        0.4697859585285187
+      ],
+      "positive_class_probability": 0.4697859585285187,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 103,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.1691,
+      "raw_probability": [
+        0.5316914916038513,
+        0.46830856800079346
+      ],
+      "positive_class_probability": 0.46830856800079346,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 104,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 51.6689,
+      "raw_probability": [
+        0.4833110272884369,
+        0.5166890025138855
+      ],
+      "positive_class_probability": 0.5166890025138855,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 105,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.0877,
+      "raw_probability": [
+        0.570876955986023,
+        0.4291229844093323
+      ],
+      "positive_class_probability": 0.4291229844093323,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 106,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 56.8023,
+      "raw_probability": [
+        0.5680234432220459,
+        0.4319765269756317
+      ],
+      "positive_class_probability": 0.4319765269756317,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 107,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 56.0272,
+      "raw_probability": [
+        0.5602723956108093,
+        0.4397275745868683
+      ],
+      "positive_class_probability": 0.4397275745868683,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 108,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.3755,
+      "raw_probability": [
+        0.5137552618980408,
+        0.4862447679042816
+      ],
+      "positive_class_probability": 0.4862447679042816,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 109,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.8062,
+      "raw_probability": [
+        0.5180620551109314,
+        0.4819379448890686
+      ],
+      "positive_class_probability": 0.4819379448890686,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 110,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.2299,
+      "raw_probability": [
+        0.5122990608215332,
+        0.4877009093761444
+      ],
+      "positive_class_probability": 0.4877009093761444,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 111,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.8143,
+      "raw_probability": [
+        0.5181427001953125,
+        0.4818573296070099
+      ],
+      "positive_class_probability": 0.4818573296070099,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 112,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 60.5855,
+      "raw_probability": [
+        0.6058547496795654,
+        0.39414525032043457
+      ],
+      "positive_class_probability": 0.39414525032043457,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 113,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.2134,
+      "raw_probability": [
+        0.5421341061592102,
+        0.4578658640384674
+      ],
+      "positive_class_probability": 0.4578658640384674,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 114,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 64.1353,
+      "raw_probability": [
+        0.6413533687591553,
+        0.3586466610431671
+      ],
+      "positive_class_probability": 0.3586466610431671,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 115,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 62.7239,
+      "raw_probability": [
+        0.6272391080856323,
+        0.3727608621120453
+      ],
+      "positive_class_probability": 0.3727608621120453,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 116,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.9267,
+      "raw_probability": [
+        0.539267361164093,
+        0.46073266863822937
+      ],
+      "positive_class_probability": 0.46073266863822937,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 117,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.4837,
+      "raw_probability": [
+        0.5148369669914246,
+        0.48516303300857544
+      ],
+      "positive_class_probability": 0.48516303300857544,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 118,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.9946,
+      "raw_probability": [
+        0.5599457025527954,
+        0.440054327249527
+      ],
+      "positive_class_probability": 0.440054327249527,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 119,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.1343,
+      "raw_probability": [
+        0.5513429045677185,
+        0.44865718483924866
+      ],
+      "positive_class_probability": 0.44865718483924866,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 120,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.0168,
+      "raw_probability": [
+        0.5401679873466492,
+        0.4598320424556732
+      ],
+      "positive_class_probability": 0.4598320424556732,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 121,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.2214,
+      "raw_probability": [
+        0.5722137093544006,
+        0.42778629064559937
+      ],
+      "positive_class_probability": 0.42778629064559937,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 122,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.99,
+      "raw_probability": [
+        0.5499000549316406,
+        0.4500999450683594
+      ],
+      "positive_class_probability": 0.4500999450683594,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 123,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.8422,
+      "raw_probability": [
+        0.5484218597412109,
+        0.4515780806541443
+      ],
+      "positive_class_probability": 0.4515780806541443,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 124,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 59.5052,
+      "raw_probability": [
+        0.595052182674408,
+        0.40494778752326965
+      ],
+      "positive_class_probability": 0.40494778752326965,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 125,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.4221,
+      "raw_probability": [
+        0.534221351146698,
+        0.4657786190509796
+      ],
+      "positive_class_probability": 0.4657786190509796,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 126,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 50.644,
+      "raw_probability": [
+        0.506439745426178,
+        0.4935602843761444
+      ],
+      "positive_class_probability": 0.4935602843761444,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 127,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.5405,
+      "raw_probability": [
+        0.5354050993919373,
+        0.46459487080574036
+      ],
+      "positive_class_probability": 0.46459487080574036,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 128,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 59.8509,
+      "raw_probability": [
+        0.5985085368156433,
+        0.4014914929866791
+      ],
+      "positive_class_probability": 0.4014914929866791,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 129,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 59.8756,
+      "raw_probability": [
+        0.5987558364868164,
+        0.4012441039085388
+      ],
+      "positive_class_probability": 0.4012441039085388,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 130,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.7145,
+      "raw_probability": [
+        0.5171452760696411,
+        0.48285478353500366
+      ],
+      "positive_class_probability": 0.48285478353500366,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 131,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 50.1281,
+      "raw_probability": [
+        0.5012814998626709,
+        0.4987184703350067
+      ],
+      "positive_class_probability": 0.4987184703350067,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 132,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 53.2014,
+      "raw_probability": [
+        0.46798571944236755,
+        0.5320142507553101
+      ],
+      "positive_class_probability": 0.5320142507553101,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 133,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.335,
+      "raw_probability": [
+        0.5133501887321472,
+        0.48664987087249756
+      ],
+      "positive_class_probability": 0.48664987087249756,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 134,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 56.8048,
+      "raw_probability": [
+        0.5680480599403381,
+        0.4319519102573395
+      ],
+      "positive_class_probability": 0.4319519102573395,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 135,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 63.7259,
+      "raw_probability": [
+        0.6372592449188232,
+        0.36274072527885437
+      ],
+      "positive_class_probability": 0.36274072527885437,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 136,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 51.5075,
+      "raw_probability": [
+        0.4849252998828888,
+        0.5150746703147888
+      ],
+      "positive_class_probability": 0.5150746703147888,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 137,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.9644,
+      "raw_probability": [
+        0.5196444988250732,
+        0.48035547137260437
+      ],
+      "positive_class_probability": 0.48035547137260437,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 138,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 55.0732,
+      "raw_probability": [
+        0.550732433795929,
+        0.44926753640174866
+      ],
+      "positive_class_probability": 0.44926753640174866,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 139,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 61.843,
+      "raw_probability": [
+        0.6184300184249878,
+        0.3815699815750122
+      ],
+      "positive_class_probability": 0.3815699815750122,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 140,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 52.6242,
+      "raw_probability": [
+        0.47375747561454773,
+        0.5262424349784851
+      ],
+      "positive_class_probability": 0.5262424349784851,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 141,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 50.8452,
+      "raw_probability": [
+        0.49154797196388245,
+        0.5084520578384399
+      ],
+      "positive_class_probability": 0.5084520578384399,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 142,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 60.2767,
+      "raw_probability": [
+        0.6027671694755554,
+        0.39723286032676697
+      ],
+      "positive_class_probability": 0.39723286032676697,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 143,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 54.1743,
+      "raw_probability": [
+        0.45825713872909546,
+        0.5417428016662598
+      ],
+      "positive_class_probability": 0.5417428016662598,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 144,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.0707,
+      "raw_probability": [
+        0.5107073783874512,
+        0.48929259181022644
+      ],
+      "positive_class_probability": 0.48929259181022644,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 145,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.0477,
+      "raw_probability": [
+        0.5104774832725525,
+        0.48952245712280273
+      ],
+      "positive_class_probability": 0.48952245712280273,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 146,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.1304,
+      "raw_probability": [
+        0.5313035249710083,
+        0.4686965346336365
+      ],
+      "positive_class_probability": 0.4686965346336365,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 147,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 53.3674,
+      "raw_probability": [
+        0.5336735844612122,
+        0.46632644534111023
+      ],
+      "positive_class_probability": 0.46632644534111023,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 148,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 58.733,
+      "raw_probability": [
+        0.5873298645019531,
+        0.41267019510269165
+      ],
+      "positive_class_probability": 0.41267019510269165,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 149,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 51.3801,
+      "raw_probability": [
+        0.48619914054870605,
+        0.513800859451294
+      ],
+      "positive_class_probability": 0.513800859451294,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 150,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.1373,
+      "raw_probability": [
+        0.541373074054718,
+        0.45862698554992676
+      ],
+      "positive_class_probability": 0.45862698554992676,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 151,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 52.5533,
+      "raw_probability": [
+        0.5255329608917236,
+        0.4744669497013092
+      ],
+      "positive_class_probability": 0.4744669497013092,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 152,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 56.0475,
+      "raw_probability": [
+        0.43952468037605286,
+        0.5604753494262695
+      ],
+      "positive_class_probability": 0.5604753494262695,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 153,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.0984,
+      "raw_probability": [
+        0.5109835863113403,
+        0.4890163838863373
+      ],
+      "positive_class_probability": 0.4890163838863373,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 154,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 52.2355,
+      "raw_probability": [
+        0.4776447117328644,
+        0.5223553776741028
+      ],
+      "positive_class_probability": 0.5223553776741028,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 155,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 54.195,
+      "raw_probability": [
+        0.5419501662254333,
+        0.4580497741699219
+      ],
+      "positive_class_probability": 0.4580497741699219,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 156,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 51.612,
+      "raw_probability": [
+        0.5161197185516357,
+        0.48388025164604187
+      ],
+      "positive_class_probability": 0.48388025164604187,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 157,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 52.6644,
+      "raw_probability": [
+        0.5266440510749817,
+        0.47335585951805115
+      ],
+      "positive_class_probability": 0.47335585951805115,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 158,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 1,
+      "predicted_label": "FAKE",
+      "confidence_percentage": 57.2242,
+      "raw_probability": [
+        0.4277583956718445,
+        0.5722416639328003
+      ],
+      "positive_class_probability": 0.5722416639328003,
+      "threshold_used": 0.5
+    },
+    {
+      "index": 159,
+      "true_class": 1,
+      "true_label": "FAKE",
+      "predicted_class": 0,
+      "predicted_label": "REAL",
+      "confidence_percentage": 57.6783,
+      "raw_probability": [
+        0.5767834186553955,
+        0.4232165813446045
+      ],
+      "positive_class_probability": 0.4232165813446045,
+      "threshold_used": 0.5
+    }
+  ]
+}

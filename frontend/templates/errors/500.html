@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Server Error{% endblock %}
+{% block content %}
+<div class="py-5 text-center" data-aos="fade-up">
+  <p class="display-6 text-secondary">500</p>
+  <h1 class="h3">Something went wrong</h1>
+  <p class="text-secondary">An unexpected error occurred. The incident has been logged for review.</p>
+  <a class="btn btn-outline-primary mt-2" href="{{ url_for('shell.home') }}">Return home</a>
+</div>
+{% endblock %}

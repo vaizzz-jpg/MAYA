@@ -1,0 +1,81 @@
+# Environment & secrets — NEVER commit these
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# MAYA runtime data (keep directory placeholders)
+uploads/*
+!uploads/.gitkeep
+reports/*
+!reports/.gitkeep
+logs/*
+!logs/.gitkeep
+backend/instance/
+*.log
+
+# Dataset blobs — keep scaffolding only (images stay local)
+dataset/raw/*
+!dataset/raw/README.md
+!dataset/raw/.gitkeep
+dataset/processed/*
+!dataset/processed/.gitkeep
+dataset/reports/*
+!dataset/reports/.gitkeep
+dataset/versions/**
+!dataset/versions/.gitkeep
+!dataset/versions/CURRENT
+
+# Large local catalogue / downloads — do not push
+archive/
+archive.zip
+
+# Local databases & model weights
+*.db
+*.sqlite3
+*.pth
+*.pt
+*.onnx
+*.h5
+*.ckpt
+
+# Heavy / regenerable training artefacts (keep small docs if any)
+artifacts/checkpoints/
+artifacts/experiments/
+artifacts/phase3/benchmark/_infer_scratch/
+artifacts/phase3/sprint4/_infer_scratch/
+
+# Jupyter
+.ipynb_checkpoints/

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="maya-hero py-5" data-aos="fade-up">
+  <p class="text-uppercase small text-secondary mb-2">Media Authenticity Analyzer</p>
+  <h1 class="display-5 fw-semibold mb-3">MAYA</h1>
+  <p class="lead text-secondary col-lg-8">
+    Digital evidence investigation platform foundation. Case management, authenticity
+    analysis, explainability, and reporting land in later phases.
+  </p>
+  <div class="d-flex flex-wrap gap-2 mt-4">
+    <a class="btn btn-primary" href="{{ url_for('health.health_check') }}">Health check</a>
+    <span class="btn btn-outline-secondary disabled" aria-disabled="true">Enter workspace (Phase 2)</span>
+  </div>
+</section>
+
+<section class="row g-4 mt-2" data-aos="fade-up" data-aos-delay="100">
+  <div class="col-md-4">
+    <h2 class="h5">Investigation-first</h2>
+    <p class="text-secondary small mb-0">Designed around cases, evidence integrity, and auditability—not consumer demos.</p>
+  </div>
+  <div class="col-md-4">
+    <h2 class="h5">Layered architecture</h2>
+    <p class="text-secondary small mb-0">Presentation, application, business, AI, and storage stay separable for safe evolution.</p>
+  </div>
+  <div class="col-md-4">
+    <h2 class="h5">Hardware-aware</h2>
+    <p class="text-secondary small mb-0">Foundation stays lean for 8 GB RAM workstations; heavy AI arrives only when required.</p>
+  </div>
+</section>
+{% endblock %}

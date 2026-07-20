@@ -1,0 +1,22 @@
+{
+  "profile": "debug",
+  "final_metrics": {
+    "train_loss": 0.6640357772509257,
+    "train_accuracy": 0.5,
+    "val_loss": 0.8870275020599365,
+    "val_accuracy": 0.08333333333333333,
+    "learning_rate": 0.0
+  },
+  "epochs_ran": 2,
+  "duration_seconds": 3.722222899999906,
+  "best_checkpoint": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\checkpoints\\best.pt",
+  "experiment_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\experiments\\experiment_001.json",
+  "best_row": {
+    "epoch": 2,
+    "train_loss": 0.6640357772509257,
+    "train_accuracy": 0.5,
+    "val_loss": 0.8870275020599365,
+    "val_accuracy": 0.08333333333333333,
+    "learning_rate": 5e-05
+  }
+}

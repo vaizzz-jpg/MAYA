@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Not Found{% endblock %}
+{% block content %}
+<div class="py-5 text-center" data-aos="fade-up">
+  <p class="display-6 text-secondary">404</p>
+  <h1 class="h3">Resource not found</h1>
+  <p class="text-secondary">The requested page or evidence resource could not be located.</p>
+  <a class="btn btn-outline-primary mt-2" href="{{ url_for('shell.home') }}">Return home</a>
+</div>
+{% endblock %}

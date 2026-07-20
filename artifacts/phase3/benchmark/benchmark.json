@@ -1,0 +1,100 @@
+{
+  "generated_at_utc": "2026-07-16T15:45:28.352789+00:00",
+  "sample_image": "C:\\Users\\Asus\\Desktop\\MAYA\\dataset\\processed\\test\\REAL\\10.jpg",
+  "runs": 5,
+  "system": {
+    "operating_system": "Windows",
+    "os_release": "Windows-10-10.0.26200-SP0",
+    "cpu": "AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD",
+    "cpu_count_logical": 8,
+    "total_ram_gb": 7.28,
+    "available_ram_gb": 0.44,
+    "python_version": "3.11.9",
+    "pytorch_version": "2.13.0+cpu",
+    "torchvision_version": "0.28.0+cpu",
+    "active_device": "cpu"
+  },
+  "model": {
+    "model_name": "efficientnet_b0",
+    "model_version": "sprint3.2-best",
+    "dataset_version": "v1",
+    "checkpoint_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\checkpoints\\best.pt",
+    "checkpoint_size_mb": 15.582,
+    "total_parameters": 4010110,
+    "trainable_parameters": 2562,
+    "frozen_parameters": 4007548
+  },
+  "latency": {
+    "runs": 5,
+    "latencies_ms": [
+      98.87220000018715,
+      96.40239999953337,
+      109.83440000018163,
+      102.46379999989585,
+      100.6865999997899
+    ],
+    "average_ms": 101.65187999991758,
+    "minimum_ms": 96.40239999953337,
+    "maximum_ms": 109.83440000018163,
+    "median_ms": 100.6865999997899,
+    "std_dev_ms": 4.556934809607607
+  },
+  "memory": {
+    "baseline_rss_mb": 388.91,
+    "peak_rss_mb": 388.98,
+    "after_rss_mb": 388.98,
+    "delta_rss_mb": 0.07,
+    "estimated_model_mb": 15.46,
+    "samples_mb": [
+      388.91,
+      388.95,
+      388.98
+    ]
+  },
+  "throughput": {
+    "points": [
+      {
+        "image_count": 1,
+        "elapsed_seconds": 0.0914,
+        "images_per_second": 10.9418
+      },
+      {
+        "image_count": 5,
+        "elapsed_seconds": 0.441,
+        "images_per_second": 11.3383
+      },
+      {
+        "image_count": 10,
+        "elapsed_seconds": 0.8505,
+        "images_per_second": 11.7576
+      },
+      {
+        "image_count": 20,
+        "elapsed_seconds": 2.3796,
+        "images_per_second": 8.4048
+      }
+    ]
+  },
+  "consistency": {
+    "runs": 5,
+    "predictions": [
+      "REAL",
+      "REAL",
+      "REAL",
+      "REAL",
+      "REAL"
+    ],
+    "confidences": [
+      64.2574,
+      64.2574,
+      64.2574,
+      64.2574,
+      64.2574
+    ],
+    "dominant_prediction": "REAL",
+    "consistency_percentage": 100.0,
+    "mean_confidence": 64.2574,
+    "confidence_std_dev": 0.0,
+    "reliability_score": 100.0
+  }
+}
