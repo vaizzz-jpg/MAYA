@@ -17,13 +17,20 @@ AI-powered **digital evidence investigation platform** for authenticity assessme
 | Phase 3.3 — AI validation & reporting | Complete |
 | Phase 3.4 — Investigation inference | Complete |
 | Phase 3.5 — AI performance benchmarks | Complete |
-| Phase 3+ — App auth / APIs | Pending |
+| Phase 4.1 — Explainability (Grad-CAM foundation) | Complete |
+| Phase 4.2 — Multi-Explainer Framework | Complete |
+| Phase 4.3 — Explanation Analytics & Trust | Complete |
+| Phase 4.4 — Explainability Validation & Benchmark | Complete |
+| Phase 3+ — App auth / cases / APIs | Pending |
+| Phase 5 — Product / reports / hardening | Pending |
+
+Roadmap: [`docs/ROADMAP.md`](docs/ROADMAP.md)
 
 ## Hardware requirements
 
 - Windows 11
 - **8 GB RAM**
-- No dedicated GPU required for dataset engineering
+- CPU-first (no dedicated GPU required)
 - Prefer `num_workers=0` DataLoader defaults
 
 ## Installation
@@ -58,19 +65,9 @@ python scripts/seal_dataset_version.py
 python -m pytest tests/test_dataset.py -q
 ```
 
-Details:
+Details: [`docs/DATASET.md`](docs/DATASET.md) · [`docs/DATASET_VERSIONING.md`](docs/DATASET_VERSIONING.md)
 
-- [`docs/DATASET.md`](docs/DATASET.md)
-- [`docs/DATASET_VERSIONING.md`](docs/DATASET_VERSIONING.md)
-- [`docs/08_PHASE2_DATA_ENGINEERING.md`](docs/08_PHASE2_DATA_ENGINEERING.md)
-- [`docs/09_PHASE25_ENGINEERING_REVIEW.md`](docs/09_PHASE25_ENGINEERING_REVIEW.md)
-- [`docs/PHASE3_SPRINT1.md`](docs/PHASE3_SPRINT1.md)
-- [`docs/PHASE3_SPRINT2.md`](docs/PHASE3_SPRINT2.md)
-- [`docs/PHASE3_SPRINT3.md`](docs/PHASE3_SPRINT3.md)
-- [`docs/PHASE3_SPRINT4.md`](docs/PHASE3_SPRINT4.md)
-- [`docs/PHASE3_SPRINT5.md`](docs/PHASE3_SPRINT5.md)
-
-## Training (Phase 3 Sprint 2)
+## Training (Phase 3.2)
 
 ```bash
 python scripts/train.py --profile debug
@@ -82,7 +79,7 @@ python -m pytest tests/test_training.py -q
 
 Logs: `logs/training.log` · Artefacts: `artifacts/phase3/sprint2/`
 
-## Evaluation (Phase 3 Sprint 3)
+## Evaluation (Phase 3.3)
 
 ```bash
 python scripts/evaluate.py --threshold 0.5
@@ -91,7 +88,7 @@ python -m pytest tests/test_evaluation.py -q
 
 Artefacts: `artifacts/phase3/sprint3/`
 
-## Inference (Phase 3 Sprint 4)
+## Inference (Phase 3.4)
 
 ```bash
 python scripts/predict.py path\to\image.jpg
@@ -101,7 +98,7 @@ python -m pytest tests/test_inference.py -q
 
 Artefacts: `artifacts/phase3/sprint4/`
 
-## Benchmarks (Phase 3 Sprint 5)
+## Inference benchmarks (Phase 3.5)
 
 ```bash
 python scripts/benchmark.py
@@ -110,6 +107,55 @@ python -m pytest tests/test_benchmark.py -q
 ```
 
 Artefacts: `artifacts/phase3/benchmark/`
+
+## Explainability (Phase 4)
+
+Plugin-based XAI stack under `ai/explainability/`:
+
+| Sprint | What it does |
+|--------|----------------|
+| 4.1 | Grad-CAM foundation + explanation artefacts |
+| 4.2 | Grad-CAM++, LayerCAM, ScoreCAM, EigenCAM + comparison |
+| 4.3 | Focus / localization / quality / trust analytics |
+| 4.4 | Explainer benchmark, ranking, recommendations |
+
+```python
+# Single explanation (Sprint 4.1+)
+from ai.explainability import ExplainabilityEngine, ExplainabilityConfig
+
+result = ExplainabilityEngine(
+    ExplainabilityConfig(explainer_name="gradcam", device_preference="cpu")
+).explain(r"path\to\image.jpg")
+
+# Multi-explainer comparison (Sprint 4.2)
+from ai.explainability import ExplainabilityEngine, ExplainabilityConfig
+
+ExplainabilityEngine(ExplainabilityConfig(device_preference="cpu")).compare(
+    r"path\to\image.jpg"
+)
+
+# Analytics on heatmaps (Sprint 4.3) — does not regenerate CAMs
+from ai.explainability.analytics import ExplanationAnalyticsEngine, AnalyticsConfig
+
+ExplanationAnalyticsEngine(AnalyticsConfig()).analyze_from_heatmap_images(
+    {"gradcam": r"artifacts\phase4\sprint2\gradcam_heatmap.png"},
+    prediction="FAKE",
+    model_confidence=80.0,
+)
+
+# Rank all registered explainers (Sprint 4.4)
+from ai.explainability.benchmark import ExplainabilityBenchmarkSuite
+
+ExplainabilityBenchmarkSuite().run(r"path\to\image.jpg")
+```
+
+```bash
+python -m pytest tests/test_gradcam.py tests/test_multi_explainer.py `
+  tests/test_explanation_analytics.py tests/test_explainability_benchmark.py -q
+```
+
+Artefacts: `artifacts/phase4/sprint{1..4}/`  
+Docs: [`PHASE4_SPRINT1.md`](docs/PHASE4_SPRINT1.md) · [`SPRINT2`](docs/PHASE4_SPRINT2.md) · [`SPRINT3`](docs/PHASE4_SPRINT3.md) · [`SPRINT4`](docs/PHASE4_SPRINT4.md)
 
 ## Processing pipeline
 
@@ -132,14 +178,25 @@ loader = create_dataloader(SplitName.TRAIN, batch_size=16, transform_name="train
 
 ```
 MAYA/
-├── ai/datasets/       # Config, utils, inventory → DataLoader (no Flask)
-├── backend/           # Flask application (Phase 1+)
-├── frontend/          # Templates & static assets
+├── ai/
+│   ├── datasets/          # Corpus pipeline + DataLoaders
+│   ├── models/            # EfficientNet-B0 + factory
+│   ├── training/          # Training CLI / callbacks
+│   ├── evaluation/        # Metrics + offline eval
+│   ├── inference/         # Investigation prediction
+│   ├── benchmark/         # Inference performance suite
+│   └── explainability/    # Phase 4 XAI (explainers, analytics, benchmark)
+├── backend/               # Flask application shell
+├── frontend/              # Templates & static assets
 ├── dataset/
-│   ├── raw/           # Immutable source
-│   ├── processed/     # Active train/val/test
-│   ├── versions/      # Sealed metadata (v1, future, …)
-│   └── reports/       # QA artefacts
+│   ├── raw/               # Immutable source
+│   ├── processed/         # Active train/val/test
+│   ├── versions/          # Sealed metadata
+│   └── reports/
+├── artifacts/
+│   ├── checkpoints/       # best.pt / last.pt (local; gitignored)
+│   ├── phase3/            # Train / eval / infer / bench outputs
+│   └── phase4/            # Explainability sprint artefacts
 ├── docs/
 ├── tests/
 └── scripts/
@@ -148,7 +205,7 @@ MAYA/
 ## Dataset versioning
 
 Active version pointer: `dataset/versions/CURRENT`  
-Sealed metadata: `dataset/versions/v1/dataset_metadata.json`  
+Sealed metadata: `dataset/versions/v1/dataset_metadata.json`
 
 Future corpora (**FaceForensics++**, **Celeb-DF**) plug in via config / `MAYA_RAW_DATASET_DIR` without changing pipeline architecture.
 
@@ -165,11 +222,14 @@ python backend/run.py
 
 Start here: [`docs/00_PHASE0_INDEX.md`](docs/00_PHASE0_INDEX.md)
 
+Phase 3 sprint notes: [`PHASE3_SPRINT1`](docs/PHASE3_SPRINT1.md)–[`SPRINT5`](docs/PHASE3_SPRINT5.md)  
+Phase 4 sprint notes: [`PHASE4_SPRINT1`](docs/PHASE4_SPRINT1.md)–[`SPRINT4`](docs/PHASE4_SPRINT4.md)
+
 ## Architecture
 
 **Presentation → Application → Business Logic → AI Analysis → Storage**
 
-Dataset code lives under `ai/` and must not import Flask.
+AI code under `ai/` must not import Flask. Explainability is independent of training/eval/benchmark packages and is requested by higher layers when needed.
 
 ## License / use
 
