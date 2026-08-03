@@ -1,0 +1,577 @@
+{
+  "image_name": "2793.jpg",
+  "prediction": "REAL",
+  "device": "CPU",
+  "explainer_names": [
+    "gradcam",
+    "gradcam_plus_plus",
+    "layercam",
+    "scorecam",
+    "eigencam"
+  ],
+  "evaluations": {
+    "gradcam": {
+      "explainer_name": "gradcam",
+      "target_layer": "features.8",
+      "target_class": 0,
+      "performance": {
+        "generation_time_ms": 517.17,
+        "peak_ram_mb": 458.07,
+        "average_ram_mb": 412.94,
+        "baseline_ram_mb": 367.81,
+        "cpu_percent": 0.0,
+        "runs": 1
+      },
+      "quality": {
+        "focus": {
+          "coverage": 0.583825,
+          "peak_activation": 1.0,
+          "mean_activation": 0.311399,
+          "activation_variance": 0.065986,
+          "activation_entropy": 0.966253,
+          "threshold_used": 0.2
+        },
+        "localization": {
+          "bbox": [
+            41,
+            0,
+            223,
+            223
+          ],
+          "coverage_percentage": 58.3825,
+          "largest_region_area": 29294,
+          "largest_region_fraction": 0.583825,
+          "center_of_attention": [
+            155.4698,
+            107.8847
+          ],
+          "threshold_used": 0.2
+        },
+        "quality": {
+          "quality_score": 68.43,
+          "grade": "Moderate",
+          "focus_component": 49.57,
+          "localization_component": 91.48,
+          "consistency_component": 0.0,
+          "components": {
+            "focus_weight": 0.55,
+            "localization_weight": 0.45,
+            "consistency_weight": 0.0
+          }
+        },
+        "coverage": 0.583825,
+        "focus_score": 49.57,
+        "localization_score": 91.48
+      },
+      "probabilities": [
+        0.6810086965560913,
+        0.3189912438392639
+      ]
+    },
+    "gradcam_plus_plus": {
+      "explainer_name": "gradcam_plus_plus",
+      "target_layer": "features.8",
+      "target_class": 0,
+      "performance": {
+        "generation_time_ms": 558.69,
+        "peak_ram_mb": 461.71,
+        "average_ram_mb": 461.08,
+        "baseline_ram_mb": 461.71,
+        "cpu_percent": 0.0,
+        "runs": 1
+      },
+      "quality": {
+        "focus": {
+          "coverage": 0.652324,
+          "peak_activation": 1.0,
+          "mean_activation": 0.388371,
+          "activation_variance": 0.091313,
+          "activation_entropy": 0.964445,
+          "threshold_used": 0.2
+        },
+        "localization": {
+          "bbox": [
+            54,
+            0,
+            223,
+            223
+          ],
+          "coverage_percentage": 65.2324,
+          "largest_region_area": 32731,
+          "largest_region_fraction": 0.652324,
+          "center_of_attention": [
+            154.0512,
+            102.2528
+          ],
+          "threshold_used": 0.2
+        },
+        "quality": {
+          "quality_score": 62.1,
+          "grade": "Moderate",
+          "focus_component": 41.63,
+          "localization_component": 87.12,
+          "consistency_component": 0.0,
+          "components": {
+            "focus_weight": 0.55,
+            "localization_weight": 0.45,
+            "consistency_weight": 0.0
+          }
+        },
+        "coverage": 0.652324,
+        "focus_score": 41.63,
+        "localization_score": 87.12
+      },
+      "probabilities": [
+        0.6810086965560913,
+        0.3189912438392639
+      ]
+    },
+    "layercam": {
+      "explainer_name": "layercam",
+      "target_layer": "features.8",
+      "target_class": 0,
+      "performance": {
+        "generation_time_ms": 215.31,
+        "peak_ram_mb": 465.46,
+        "average_ram_mb": 464.45,
+        "baseline_ram_mb": 463.44,
+        "cpu_percent": 0.0,
+        "runs": 1
+      },
+      "quality": {
+        "focus": {
+          "coverage": 0.651427,
+          "peak_activation": 1.0,
+          "mean_activation": 0.386481,
+          "activation_variance": 0.090137,
+          "activation_entropy": 0.964528,
+          "threshold_used": 0.2
+        },
+        "localization": {
+          "bbox": [
+            54,
+            0,
+            223,
+            223
+          ],
+          "coverage_percentage": 65.1427,
+          "largest_region_area": 32686,
+          "largest_region_fraction": 0.651427,
+          "center_of_attention": [
+            154.0737,
+            102.4516
+          ],
+          "threshold_used": 0.2
+        },
+        "quality": {
+          "quality_score": 62.18,
+          "grade": "Moderate",
+          "focus_component": 41.73,
+          "localization_component": 87.18,
+          "consistency_component": 0.0,
+          "components": {
+            "focus_weight": 0.55,
+            "localization_weight": 0.45,
+            "consistency_weight": 0.0
+          }
+        },
+        "coverage": 0.651427,
+        "focus_score": 41.73,
+        "localization_score": 87.18
+      },
+      "probabilities": [
+        0.6810086965560913,
+        0.3189912438392639
+      ]
+    },
+    "scorecam": {
+      "explainer_name": "scorecam",
+      "target_layer": "features.8",
+      "target_class": 0,
+      "performance": {
+        "generation_time_ms": 50533.76,
+        "peak_ram_mb": 536.69,
+        "average_ram_mb": 501.32,
+        "baseline_ram_mb": 465.95,
+        "cpu_percent": 0.0,
+        "runs": 1
+      },
+      "quality": {
+        "focus": {
+          "coverage": 0.655473,
+          "peak_activation": 1.0,
+          "mean_activation": 0.38418,
+          "activation_variance": 0.087049,
+          "activation_entropy": 0.964884,
+          "threshold_used": 0.2
+        },
+        "localization": {
+          "bbox": [
+            44,
+            0,
+            223,
+            223
+          ],
+          "coverage_percentage": 65.5473,
+          "largest_region_area": 32889,
+          "largest_region_fraction": 0.655473,
+          "center_of_attention": [
+            152.0278,
+            101.39
+          ],
+          "threshold_used": 0.2
+        },
+        "quality": {
+          "quality_score": 61.8,
+          "grade": "Moderate",
+          "focus_component": 41.25,
+          "localization_component": 86.92,
+          "consistency_component": 0.0,
+          "components": {
+            "focus_weight": 0.55,
+            "localization_weight": 0.45,
+            "consistency_weight": 0.0
+          }
+        },
+        "coverage": 0.655473,
+        "focus_score": 41.25,
+        "localization_score": 86.92
+      },
+      "probabilities": [
+        0.6810086965560913,
+        0.3189912438392639
+      ]
+    },
+    "eigencam": {
+      "explainer_name": "eigencam",
+      "target_layer": "features.8",
+      "target_class": 0,
+      "performance": {
+        "generation_time_ms": 101.48,
+        "peak_ram_mb": 542.28,
+        "average_ram_mb": 540.96,
+        "baseline_ram_mb": 539.63,
+        "cpu_percent": 0.0,
+        "runs": 1
+      },
+      "quality": {
+        "focus": {
+          "coverage": 0.075733,
+          "peak_activation": 0.999999,
+          "mean_activation": 0.044722,
+          "activation_variance": 0.022177,
+          "activation_entropy": 0.789212,
+          "threshold_used": 0.2
+        },
+        "localization": {
+          "bbox": [
+            19,
+            86,
+            73,
+            170
+          ],
+          "coverage_percentage": 7.5733,
+          "largest_region_area": 3800,
+          "largest_region_fraction": 0.075733,
+          "center_of_attention": [
+            45.7385,
+            127.5802
+          ],
+          "threshold_used": 0.2
+        },
+        "quality": {
+          "quality_score": 74.33,
+          "grade": "Moderate",
+          "focus_component": 67.83,
+          "localization_component": 82.26,
+          "consistency_component": 0.0,
+          "components": {
+            "focus_weight": 0.55,
+            "localization_weight": 0.45,
+            "consistency_weight": 0.0
+          }
+        },
+        "coverage": 0.075733,
+        "focus_score": 67.83,
+        "localization_score": 82.26
+      },
+      "probabilities": [
+        0.6810086965560913,
+        0.3189912438392639
+      ]
+    }
+  },
+  "agreement": {
+    "consistency": {
+      "agreement_score": 0.799533,
+      "mean_pearson": 0.415154,
+      "mean_cosine": 0.599066,
+      "mean_mse": 0.108695,
+      "explainer_names": [
+        "eigencam",
+        "gradcam",
+        "gradcam_plus_plus",
+        "layercam",
+        "scorecam"
+      ],
+      "pairwise": [
+        {
+          "explainer_a": "eigencam",
+          "explainer_b": "gradcam",
+          "pearson_correlation": -0.206532,
+          "spearman_correlation": -0.095972,
+          "cosine_similarity": 0.096002,
+          "mse": 0.175081
+        },
+        {
+          "explainer_a": "eigencam",
+          "explainer_b": "gradcam_plus_plus",
+          "pearson_correlation": -0.255248,
+          "spearman_correlation": -0.119298,
+          "cosine_similarity": 0.076884,
+          "mse": 0.254556
+        },
+        {
+          "explainer_a": "eigencam",
+          "explainer_b": "layercam",
+          "pearson_correlation": -0.254336,
+          "spearman_correlation": -0.117403,
+          "cosine_similarity": 0.077706,
+          "mse": 0.251855
+        },
+        {
+          "explainer_a": "eigencam",
+          "explainer_b": "scorecam",
+          "pearson_correlation": -0.236129,
+          "spearman_correlation": -0.083242,
+          "cosine_similarity": 0.090371,
+          "mse": 0.245206
+        },
+        {
+          "explainer_a": "gradcam",
+          "explainer_b": "gradcam_plus_plus",
+          "pearson_correlation": 0.728104,
+          "spearman_correlation": 0.724691,
+          "cosine_similarity": 0.893345,
+          "mse": 0.050188
+        },
+        {
+          "explainer_a": "gradcam",
+          "explainer_b": "layercam",
+          "pearson_correlation": 0.726118,
+          "spearman_correlation": 0.723558,
+          "cosine_similarity": 0.892653,
+          "mse": 0.049761
+        },
+        {
+          "explainer_a": "gradcam",
+          "explainer_b": "scorecam",
+          "pearson_correlation": 0.66182,
+          "spearman_correlation": 0.669268,
+          "cosine_similarity": 0.868318,
+          "mse": 0.058014
+        },
+        {
+          "explainer_a": "gradcam_plus_plus",
+          "explainer_b": "layercam",
+          "pearson_correlation": 0.999951,
+          "spearman_correlation": 0.999652,
+          "cosine_similarity": 0.999981,
+          "mse": 1.6e-05
+        },
+        {
+          "explainer_a": "gradcam_plus_plus",
+          "explainer_b": "scorecam",
+          "pearson_correlation": 0.993703,
+          "spearman_correlation": 0.993626,
+          "cosine_similarity": 0.997625,
+          "mse": 0.001191
+        },
+        {
+          "explainer_a": "layercam",
+          "explainer_b": "scorecam",
+          "pearson_correlation": 0.994093,
+          "spearman_correlation": 0.993962,
+          "cosine_similarity": 0.997777,
+          "mse": 0.001079
+        }
+      ]
+    },
+    "matrix": {
+      "eigencam": {
+        "eigencam": 1.0,
+        "gradcam": 0.096002,
+        "gradcam_plus_plus": 0.076884,
+        "layercam": 0.077706,
+        "scorecam": 0.090371
+      },
+      "gradcam": {
+        "eigencam": 0.096002,
+        "gradcam": 1.0,
+        "gradcam_plus_plus": 0.893345,
+        "layercam": 0.892653,
+        "scorecam": 0.868318
+      },
+      "gradcam_plus_plus": {
+        "eigencam": 0.076884,
+        "gradcam": 0.893345,
+        "gradcam_plus_plus": 1.0,
+        "layercam": 0.999981,
+        "scorecam": 0.997625
+      },
+      "layercam": {
+        "eigencam": 0.077706,
+        "gradcam": 0.892653,
+        "gradcam_plus_plus": 0.999981,
+        "layercam": 1.0,
+        "scorecam": 0.997777
+      },
+      "scorecam": {
+        "eigencam": 0.090371,
+        "gradcam": 0.868318,
+        "gradcam_plus_plus": 0.997625,
+        "layercam": 0.997777,
+        "scorecam": 1.0
+      }
+    },
+    "per_explainer_mean_agreement": {
+      "eigencam": 0.085241,
+      "gradcam": 0.68758,
+      "gradcam_plus_plus": 0.741959,
+      "layercam": 0.742029,
+      "scorecam": 0.738523
+    }
+  },
+  "ranking": {
+    "weights": {
+      "quality": 0.35,
+      "focus": 0.15,
+      "localization": 0.15,
+      "coverage": 0.1,
+      "agreement": 0.15,
+      "performance": 0.1
+    },
+    "entries": [
+      {
+        "rank": 1,
+        "explainer_name": "gradcam",
+        "overall_score": 67.08,
+        "quality_score": 68.43,
+        "focus_score": 49.57,
+        "localization_score": 91.48,
+        "coverage": 0.583825,
+        "agreement_score": 0.68758,
+        "performance_score": 77.85,
+        "generation_time_ms": 517.17,
+        "peak_ram_mb": 458.07
+      },
+      {
+        "rank": 2,
+        "explainer_name": "eigencam",
+        "overall_score": 64.82,
+        "quality_score": 74.33,
+        "focus_score": 67.83,
+        "localization_score": 82.26,
+        "coverage": 0.075733,
+        "agreement_score": 0.085241,
+        "performance_score": 74.38,
+        "generation_time_ms": 101.48,
+        "peak_ram_mb": 542.28
+      },
+      {
+        "rank": 3,
+        "explainer_name": "layercam",
+        "overall_score": 61.63,
+        "quality_score": 62.18,
+        "focus_score": 41.73,
+        "localization_score": 87.18,
+        "coverage": 0.651427,
+        "agreement_score": 0.742029,
+        "performance_score": 77.86,
+        "generation_time_ms": 215.31,
+        "peak_ram_mb": 465.46
+      },
+      {
+        "rank": 4,
+        "explainer_name": "gradcam_plus_plus",
+        "overall_score": 61.53,
+        "quality_score": 62.1,
+        "focus_score": 41.63,
+        "localization_score": 87.12,
+        "coverage": 0.652324,
+        "agreement_score": 0.741959,
+        "performance_score": 77.63,
+        "generation_time_ms": 558.69,
+        "peak_ram_mb": 461.71
+      },
+      {
+        "rank": 5,
+        "explainer_name": "scorecam",
+        "overall_score": 54.94,
+        "quality_score": 61.8,
+        "focus_score": 41.25,
+        "localization_score": 86.92,
+        "coverage": 0.655473,
+        "agreement_score": 0.738523,
+        "performance_score": 15.26,
+        "generation_time_ms": 50533.76,
+        "peak_ram_mb": 536.69
+      }
+    ]
+  },
+  "recommendation": {
+    "recommended_explainer": "gradcam",
+    "overall_score": 67.08,
+    "rank": 1,
+    "rationale": [
+      "`gradcam` ranked #1 with overall score 67.1/100 under the configured weights.",
+      "Explanation quality 68.4/100; focus 49.6; localization 91.5.",
+      "Coverage 58.4%; mean agreement 68.8%; generation 517.2 ms; peak RAM 458.1 MiB.",
+      "Leads `eigencam` by 2.3 overall points."
+    ],
+    "alternatives": [
+      {
+        "explainer": "eigencam",
+        "rank": 2,
+        "overall_score": 64.82,
+        "why_consider": "Faster generation \u2014 useful for quick triage."
+      },
+      {
+        "explainer": "layercam",
+        "rank": 3,
+        "overall_score": 61.63,
+        "why_consider": "Faster generation \u2014 useful for quick triage."
+      }
+    ],
+    "caveats": [
+      "Recommendation is relative to this image and current weight configuration.",
+      "Always review overlays beside the original evidence.",
+      "Model confidence and explanation quality are different signals."
+    ]
+  },
+  "statistics": {
+    "explainer_count": 5,
+    "mean_quality": 65.77,
+    "mean_generation_time_ms": 10385.28,
+    "mean_peak_ram_mb": 492.84,
+    "mean_agreement": 0.599066,
+    "mean_overall_score": 62.0,
+    "fastest_explainer": "eigencam",
+    "leanest_explainer": "gradcam",
+    "highest_quality_explainer": "eigencam"
+  },
+  "artifact_paths": {
+    "leaderboard": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\leaderboard.png",
+    "performance_chart": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\performance_chart.png",
+    "quality_chart": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\quality_chart.png",
+    "agreement_matrix": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\agreement_matrix.png",
+    "memory_usage": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\memory_usage.png",
+    "comparison_dashboard": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\comparison_dashboard.png",
+    "benchmark_json": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\benchmark.json",
+    "leaderboard_json": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\leaderboard.json",
+    "recommendation_json": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\recommendation.json",
+    "summary_md": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\summary.md",
+    "benchmark_report_md": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint4\\benchmark_report.md"
+  },
+  "timestamp": "2026-08-03T13:33:11.416183+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "investigation_id": "INV-2026-000001",
+  "explainer_name": "gradcam",
+  "model_name": "efficientnet_b0",
+  "model_version": "sprint3.2-best",
+  "dataset_version": "MAYA-Kaggle-Balanced-v1",
+  "prediction": "REAL",
+  "confidence": 68.1009,
+  "target_class": 0,
+  "target_layer": "features.8",
+  "generation_time_ms": 2543.73,
+  "device": "CPU",
+  "heatmap_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint1\\heatmap.png",
+  "overlay_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint1\\overlay.png",
+  "timestamp": "2026-07-20T17:07:29.513019+00:00",
+  "comparison_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint1\\comparison.png",
+  "original_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint1\\original.png",
+  "image_name": "2793.jpg",
+  "real_probability": 0.6810086965560913,
+  "fake_probability": 0.3189912438392639
+}

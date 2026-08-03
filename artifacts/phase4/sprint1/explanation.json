@@ -1,0 +1,12 @@
+{
+  "investigation_id": "INV-2026-000001",
+  "prediction": "REAL",
+  "confidence": 68.1009,
+  "explainer": "gradcam",
+  "target_layer": "features.8",
+  "generation_time_ms": 2543.73,
+  "device": "CPU",
+  "heatmap": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint1\\heatmap.png",
+  "overlay": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint1\\overlay.png",
+  "timestamp": "2026-07-20T17:07:29.513019+00:00"
+}

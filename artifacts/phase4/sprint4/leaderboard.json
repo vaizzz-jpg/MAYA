@@ -1,0 +1,77 @@
+{
+  "weights": {
+    "quality": 0.35,
+    "focus": 0.15,
+    "localization": 0.15,
+    "coverage": 0.1,
+    "agreement": 0.15,
+    "performance": 0.1
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "explainer_name": "gradcam",
+      "overall_score": 67.08,
+      "quality_score": 68.43,
+      "focus_score": 49.57,
+      "localization_score": 91.48,
+      "coverage": 0.583825,
+      "agreement_score": 0.68758,
+      "performance_score": 77.85,
+      "generation_time_ms": 517.17,
+      "peak_ram_mb": 458.07
+    },
+    {
+      "rank": 2,
+      "explainer_name": "eigencam",
+      "overall_score": 64.82,
+      "quality_score": 74.33,
+      "focus_score": 67.83,
+      "localization_score": 82.26,
+      "coverage": 0.075733,
+      "agreement_score": 0.085241,
+      "performance_score": 74.38,
+      "generation_time_ms": 101.48,
+      "peak_ram_mb": 542.28
+    },
+    {
+      "rank": 3,
+      "explainer_name": "layercam",
+      "overall_score": 61.63,
+      "quality_score": 62.18,
+      "focus_score": 41.73,
+      "localization_score": 87.18,
+      "coverage": 0.651427,
+      "agreement_score": 0.742029,
+      "performance_score": 77.86,
+      "generation_time_ms": 215.31,
+      "peak_ram_mb": 465.46
+    },
+    {
+      "rank": 4,
+      "explainer_name": "gradcam_plus_plus",
+      "overall_score": 61.53,
+      "quality_score": 62.1,
+      "focus_score": 41.63,
+      "localization_score": 87.12,
+      "coverage": 0.652324,
+      "agreement_score": 0.741959,
+      "performance_score": 77.63,
+      "generation_time_ms": 558.69,
+      "peak_ram_mb": 461.71
+    },
+    {
+      "rank": 5,
+      "explainer_name": "scorecam",
+      "overall_score": 54.94,
+      "quality_score": 61.8,
+      "focus_score": 41.25,
+      "localization_score": 86.92,
+      "coverage": 0.655473,
+      "agreement_score": 0.738523,
+      "performance_score": 15.26,
+      "generation_time_ms": 50533.76,
+      "peak_ram_mb": 536.69
+    }
+  ]
+}

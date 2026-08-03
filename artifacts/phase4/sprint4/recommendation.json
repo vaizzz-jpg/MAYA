@@ -1,0 +1,30 @@
+{
+  "recommended_explainer": "gradcam",
+  "overall_score": 67.08,
+  "rank": 1,
+  "rationale": [
+    "`gradcam` ranked #1 with overall score 67.1/100 under the configured weights.",
+    "Explanation quality 68.4/100; focus 49.6; localization 91.5.",
+    "Coverage 58.4%; mean agreement 68.8%; generation 517.2 ms; peak RAM 458.1 MiB.",
+    "Leads `eigencam` by 2.3 overall points."
+  ],
+  "alternatives": [
+    {
+      "explainer": "eigencam",
+      "rank": 2,
+      "overall_score": 64.82,
+      "why_consider": "Faster generation \u2014 useful for quick triage."
+    },
+    {
+      "explainer": "layercam",
+      "rank": 3,
+      "overall_score": 61.63,
+      "why_consider": "Faster generation \u2014 useful for quick triage."
+    }
+  ],
+  "caveats": [
+    "Recommendation is relative to this image and current weight configuration.",
+    "Always review overlays beside the original evidence.",
+    "Model confidence and explanation quality are different signals."
+  ]
+}

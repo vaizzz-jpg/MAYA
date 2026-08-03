@@ -1,0 +1,209 @@
+{
+  "primary_explainer": "gradcam",
+  "prediction": "REAL",
+  "image_name": "2793.jpg",
+  "timestamp": "2026-08-03T13:22:17.917730+00:00",
+  "focus": {
+    "coverage": 0.612643,
+    "peak_activation": 1.0,
+    "mean_activation": 0.426501,
+    "activation_variance": 0.125713,
+    "activation_entropy": 0.961473,
+    "threshold_used": 0.2
+  },
+  "localization": {
+    "bbox": [
+      0,
+      0,
+      223,
+      223
+    ],
+    "coverage_percentage": 61.2643,
+    "largest_region_area": 30510,
+    "largest_region_fraction": 0.60806,
+    "center_of_attention": [
+      148.5106,
+      117.6779
+    ],
+    "threshold_used": 0.2
+  },
+  "statistics": {
+    "count": 50176,
+    "minimum": 0.0,
+    "maximum": 1.0,
+    "mean": 0.42650105683838924,
+    "median": 0.37682953522521206,
+    "std": 0.3545597419936045,
+    "p25": 0.060041080739453315,
+    "p75": 0.8117021641557743,
+    "p90": 0.9147828330634723,
+    "p99": 0.9925100853650228,
+    "sparsity": 0.08219068877551021
+  },
+  "quality": {
+    "quality_score": 69.7,
+    "grade": "Moderate",
+    "focus_component": 46.35,
+    "localization_component": 89.65,
+    "consistency_component": 79.12,
+    "components": {
+      "focus_weight": 0.4,
+      "localization_weight": 0.35,
+      "consistency_weight": 0.25
+    }
+  },
+  "confidence": {
+    "model_prediction_confidence": 68.1,
+    "explanation_confidence": 78.11,
+    "model_confidence_level": "Moderate",
+    "explanation_confidence_level": "High",
+    "notes": "Model confidence reflects class probability. Explanation confidence reflects map focus/quality and cross-explainer agreement."
+  },
+  "summary": {
+    "headline": "Explanation for prediction **REAL** using `gradcam` \u2014 quality moderate (70/100).",
+    "focus_summary": "The map is relatively diffuse across many regions. About 61.3% of the image exceeds the activation threshold (0.20). Peak activation is 1.00; mean activation is 0.43.",
+    "localization_summary": "Highlighted coverage is about 61.3% of the image. The main attention box spans rows 0\u2013223 and columns 0\u2013223. The center of attention is near pixel (row 148.5, col 117.7). The largest connected highlight covers 30510 pixels (60.81% of the map).",
+    "consistency_summary": "The methods largely agree on where to look. Agreement score is 79.1/100 (mean correlation 0.381, mean cosine 0.582).",
+    "confidence_summary": "The model\u2019s prediction confidence is 68.1% (Moderate). Separately, explanation confidence is 78.1% (High). These measure different things and should not be treated as the same.",
+    "quality_summary": "Overall explanation quality is 69.7/100 (Moderate).",
+    "investigator_guidance": "Use the overlay next to the original evidence; do not rely on numbers alone. Explanation confidence is not a legal certainty score."
+  },
+  "consistency": {
+    "agreement_score": 0.791158,
+    "mean_pearson": 0.381219,
+    "mean_cosine": 0.582316,
+    "mean_mse": 0.192988,
+    "explainer_names": [
+      "eigencam",
+      "gradcam",
+      "gradcam_plus_plus",
+      "layercam",
+      "scorecam"
+    ],
+    "pairwise": [
+      {
+        "explainer_a": "eigencam",
+        "explainer_b": "gradcam",
+        "pearson_correlation": -0.224603,
+        "spearman_correlation": 0.060522,
+        "cosine_similarity": 0.077894,
+        "mse": 0.329738
+      },
+      {
+        "explainer_a": "eigencam",
+        "explainer_b": "gradcam_plus_plus",
+        "pearson_correlation": -0.256338,
+        "spearman_correlation": 0.127429,
+        "cosine_similarity": 0.069011,
+        "mse": 0.409168
+      },
+      {
+        "explainer_a": "eigencam",
+        "explainer_b": "layercam",
+        "pearson_correlation": -0.257318,
+        "spearman_correlation": 0.124503,
+        "cosine_similarity": 0.068961,
+        "mse": 0.412723
+      },
+      {
+        "explainer_a": "eigencam",
+        "explainer_b": "scorecam",
+        "pearson_correlation": -0.232137,
+        "spearman_correlation": 0.085458,
+        "cosine_similarity": 0.086285,
+        "mse": 0.425635
+      },
+      {
+        "explainer_a": "gradcam",
+        "explainer_b": "gradcam_plus_plus",
+        "pearson_correlation": 0.60987,
+        "spearman_correlation": 0.650818,
+        "cosine_similarity": 0.845741,
+        "mse": 0.110984
+      },
+      {
+        "explainer_a": "gradcam",
+        "explainer_b": "layercam",
+        "pearson_correlation": 0.608479,
+        "spearman_correlation": 0.651286,
+        "cosine_similarity": 0.845435,
+        "mse": 0.112094
+      },
+      {
+        "explainer_a": "gradcam",
+        "explainer_b": "scorecam",
+        "pearson_correlation": 0.604664,
+        "spearman_correlation": 0.65858,
+        "cosine_similarity": 0.845097,
+        "mse": 0.116894
+      },
+      {
+        "explainer_a": "gradcam_plus_plus",
+        "explainer_b": "layercam",
+        "pearson_correlation": 0.9997,
+        "spearman_correlation": 0.999119,
+        "cosine_similarity": 0.999885,
+        "mse": 9.8e-05
+      },
+      {
+        "explainer_a": "gradcam_plus_plus",
+        "explainer_b": "scorecam",
+        "pearson_correlation": 0.979005,
+        "spearman_correlation": 0.97005,
+        "cosine_similarity": 0.992062,
+        "mse": 0.006595
+      },
+      {
+        "explainer_a": "layercam",
+        "explainer_b": "scorecam",
+        "pearson_correlation": 0.980868,
+        "spearman_correlation": 0.971692,
+        "cosine_similarity": 0.992787,
+        "mse": 0.005956
+      }
+    ]
+  },
+  "per_explainer_focus": {
+    "gradcam": {
+      "coverage": 0.612643,
+      "peak_activation": 1.0,
+      "mean_activation": 0.426501,
+      "activation_variance": 0.125713,
+      "activation_entropy": 0.961473,
+      "threshold_used": 0.2
+    },
+    "gradcam_plus_plus": {
+      "coverage": 0.652802,
+      "peak_activation": 1.0,
+      "mean_activation": 0.489593,
+      "activation_variance": 0.147235,
+      "activation_entropy": 0.96209,
+      "threshold_used": 0.2
+    },
+    "layercam": {
+      "coverage": 0.652862,
+      "peak_activation": 1.0,
+      "mean_activation": 0.492435,
+      "activation_variance": 0.148067,
+      "activation_entropy": 0.962199,
+      "threshold_used": 0.2
+    },
+    "scorecam": {
+      "coverage": 0.662209,
+      "peak_activation": 1.0,
+      "mean_activation": 0.506206,
+      "activation_variance": 0.151995,
+      "activation_entropy": 0.962779,
+      "threshold_used": 0.2
+    },
+    "eigencam": {
+      "coverage": 0.078284,
+      "peak_activation": 1.0,
+      "mean_activation": 0.055566,
+      "activation_variance": 0.03615,
+      "activation_entropy": 0.779433,
+      "threshold_used": 0.2
+    }
+  },
+  "artifact_paths": {}
+}

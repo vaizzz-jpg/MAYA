@@ -1,0 +1,57 @@
+{
+  "image_name": "2793.jpg",
+  "prediction": "REAL",
+  "confidence": 68.1009,
+  "model_name": "efficientnet_b0",
+  "model_version": "sprint3.2-best",
+  "device": "CPU",
+  "target_layer": "features.8",
+  "explainers": [
+    {
+      "explainer_name": "gradcam",
+      "generation_time_ms": 587.56,
+      "overlay_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\gradcam.png",
+      "heatmap_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\gradcam_heatmap.png",
+      "target_class": 0,
+      "target_layer": "features.8"
+    },
+    {
+      "explainer_name": "gradcam_plus_plus",
+      "generation_time_ms": 413.72,
+      "overlay_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\gradcam_plus_plus.png",
+      "heatmap_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\gradcam_plus_plus_heatmap.png",
+      "target_class": 0,
+      "target_layer": "features.8"
+    },
+    {
+      "explainer_name": "layercam",
+      "generation_time_ms": 371.18,
+      "overlay_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\layercam.png",
+      "heatmap_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\layercam_heatmap.png",
+      "target_class": 0,
+      "target_layer": "features.8"
+    },
+    {
+      "explainer_name": "scorecam",
+      "generation_time_ms": 76231.53,
+      "overlay_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\scorecam.png",
+      "heatmap_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\scorecam_heatmap.png",
+      "target_class": 0,
+      "target_layer": "features.8"
+    },
+    {
+      "explainer_name": "eigencam",
+      "generation_time_ms": 274.45,
+      "overlay_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\eigencam.png",
+      "heatmap_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\eigencam_heatmap.png",
+      "target_class": 0,
+      "target_layer": "features.8"
+    }
+  ],
+  "comparison_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint2\\comparison.png",
+  "timestamp": "2026-07-20T17:24:43.494701+00:00",
+  "total_time_ms": 77878.45,
+  "metadata": {
+    "color_map": "jet"
+  }
+}

@@ -6,4 +6,8 @@ Phase 3.2: ``ai/training/`` + trainer
 Phase 3.3: ``ai/evaluation/``
 Phase 3.4: ``ai/inference/``
 Phase 3.5: ``ai/benchmark/``
+Phase 4.1: ``ai/explainability/``
+Phase 4.2: Multi-Explainer Framework (``explainers/``, ``comparison``)
+Phase 4.3: Explanation Analytics & Trust Engine (``analytics/``)
+Phase 4.4: Explainability Validation & Benchmark Suite (``explainability/benchmark/``)
 """

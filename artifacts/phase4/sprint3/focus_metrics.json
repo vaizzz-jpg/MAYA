@@ -1,0 +1,52 @@
+{
+  "primary": {
+    "coverage": 0.612643,
+    "peak_activation": 1.0,
+    "mean_activation": 0.426501,
+    "activation_variance": 0.125713,
+    "activation_entropy": 0.961473,
+    "threshold_used": 0.2
+  },
+  "per_explainer": {
+    "gradcam": {
+      "coverage": 0.612643,
+      "peak_activation": 1.0,
+      "mean_activation": 0.426501,
+      "activation_variance": 0.125713,
+      "activation_entropy": 0.961473,
+      "threshold_used": 0.2
+    },
+    "gradcam_plus_plus": {
+      "coverage": 0.652802,
+      "peak_activation": 1.0,
+      "mean_activation": 0.489593,
+      "activation_variance": 0.147235,
+      "activation_entropy": 0.96209,
+      "threshold_used": 0.2
+    },
+    "layercam": {
+      "coverage": 0.652862,
+      "peak_activation": 1.0,
+      "mean_activation": 0.492435,
+      "activation_variance": 0.148067,
+      "activation_entropy": 0.962199,
+      "threshold_used": 0.2
+    },
+    "scorecam": {
+      "coverage": 0.662209,
+      "peak_activation": 1.0,
+      "mean_activation": 0.506206,
+      "activation_variance": 0.151995,
+      "activation_entropy": 0.962779,
+      "threshold_used": 0.2
+    },
+    "eigencam": {
+      "coverage": 0.078284,
+      "peak_activation": 1.0,
+      "mean_activation": 0.055566,
+      "activation_variance": 0.03615,
+      "activation_entropy": 0.779433,
+      "threshold_used": 0.2
+    }
+  }
+}
