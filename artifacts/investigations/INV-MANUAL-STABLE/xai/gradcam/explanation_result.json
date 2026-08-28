@@ -1,0 +1,21 @@
+{
+  "investigation_id": "INV-MANUAL-STABLE",
+  "explainer_name": "gradcam",
+  "model_name": "efficientnet_b0",
+  "model_version": "sprint3.2-best",
+  "dataset_version": "MAYA-Kaggle-Balanced-v1",
+  "prediction": "REAL",
+  "confidence": 68.1009,
+  "target_class": 0,
+  "target_layer": "features.8",
+  "generation_time_ms": 1379.98,
+  "device": "CPU",
+  "heatmap_path": "artifacts\\investigations\\INV-MANUAL-STABLE\\xai\\gradcam\\heatmap.png",
+  "overlay_path": "artifacts\\investigations\\INV-MANUAL-STABLE\\xai\\gradcam\\overlay.png",
+  "timestamp": "2026-08-26T15:12:35.639804+00:00",
+  "comparison_path": "artifacts\\investigations\\INV-MANUAL-STABLE\\xai\\gradcam\\comparison.png",
+  "original_path": "artifacts\\investigations\\INV-MANUAL-STABLE\\xai\\gradcam\\original.png",
+  "image_name": "original.png",
+  "real_probability": 0.6810086965560913,
+  "fake_probability": 0.3189912438392639
+}

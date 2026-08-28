@@ -1,0 +1,12 @@
+{
+  "investigation_id": "INV-MANUAL-STABLE",
+  "prediction": "REAL",
+  "confidence": 68.1009,
+  "explainer": "gradcam",
+  "target_layer": "features.8",
+  "generation_time_ms": 1379.98,
+  "device": "CPU",
+  "heatmap": "artifacts\\investigations\\INV-MANUAL-STABLE\\xai\\gradcam\\heatmap.png",
+  "overlay": "artifacts\\investigations\\INV-MANUAL-STABLE\\xai\\gradcam\\overlay.png",
+  "timestamp": "2026-08-26T15:12:35.639804+00:00"
+}

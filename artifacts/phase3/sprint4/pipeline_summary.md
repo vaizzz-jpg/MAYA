@@ -8,4 +8,4 @@
 6. Allocate investigation ID
 7. Persist artefacts
 
-Last result: `INV-2026-000001` → REAL
+Last result: `INV-2026-000003` → REAL

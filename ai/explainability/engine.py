@@ -79,13 +79,31 @@ class ExplainabilityEngine:
             self.config.id_state_path
         )
 
-    def explain(self, image_path: Path | str) -> ExplanationResult:
-        """Run a single configured explainer (Sprint 4.1-compatible)."""
+    def explain(
+        self,
+        image_path: Path | str,
+        *,
+        investigation_id: str | None = None,
+        artifact_dir: Path | str | None = None,
+    ) -> ExplanationResult:
+        """Run a single configured explainer (Sprint 4.1-compatible).
+
+        Args:
+            image_path: Evidence image path (does **not** determine output dir).
+            investigation_id: Reuse an existing investigation ID (e.g. from
+                ``scripts/predict.py``). When ``None``, allocate a new ID.
+            artifact_dir: Override output directory for this run. When ``None``,
+                uses ``config.artifact_dir`` (default Sprint 4.1 path). Outputs
+                are never derived from the input image location.
+
+        Target class: ``config.target_class`` when set; otherwise the predicted
+        class from the same loaded checkpoint + preprocessing as inference.
+        """
 
         cfg = self.config
         path = ensure_file(Path(image_path))
-        artifact_dir = Path(cfg.artifact_dir)
-        artifact_dir.mkdir(parents=True, exist_ok=True)
+        out_dir = Path(artifact_dir) if artifact_dir is not None else Path(cfg.artifact_dir)
+        out_dir.mkdir(parents=True, exist_ok=True)
 
         with timing_ms() as timer:
             loaded = self._loader.load()
@@ -107,6 +125,7 @@ class ExplainabilityEngine:
             ):
                 explainer.batch_size = cfg.scorecam_batch_size  # type: ignore[attr-defined]
 
+            # None → predicted class inside explainer (select_target_class)
             cam = explainer.generate(
                 prepared.tensor,
                 target_class=cfg.target_class,
@@ -142,14 +161,18 @@ class ExplainabilityEngine:
                 source_image=original,
                 heatmap=heatmap,
                 overlay=overlay,
-                artifact_dir=artifact_dir,
+                artifact_dir=out_dir,
                 color_map=cfg.color_map,
                 output_size=out_h,
             )
 
-            investigation_id = self._id_gen.next_id()
+            inv_id = (
+                investigation_id.strip()
+                if investigation_id and investigation_id.strip()
+                else self._id_gen.next_id()
+            )
             result = ExplanationResult(
-                investigation_id=investigation_id,
+                investigation_id=inv_id,
                 explainer_name=explainer.name,
                 model_name=loaded.model_name or cfg.model_name,
                 model_version=loaded.model_version or cfg.model_version,
@@ -174,16 +197,19 @@ class ExplainabilityEngine:
 
         result.generation_time_ms = round(timer["ms"], 2)
 
-        write_explanation_json(result, artifact_dir / "explanation.json")
-        write_explanation_report(result, artifact_dir / "explanation_report.md")
-        write_pipeline_summary(artifact_dir / "pipeline_summary.md")
-        result.save_json(artifact_dir / "explanation_result.json")
+        write_explanation_json(result, out_dir / "explanation.json")
+        write_explanation_report(result, out_dir / "explanation_report.md")
+        write_pipeline_summary(out_dir / "pipeline_summary.md")
+        result.save_json(out_dir / "explanation_result.json")
 
         logger.info(
-            "Explanation complete id=%s explainer=%s pred=%s (%.1f ms)",
+            "Explanation complete id=%s explainer=%s pred=%s target_class=%s "
+            "artifact_dir=%s (%.1f ms)",
             result.investigation_id,
             result.explainer_name,
             result.prediction,
+            result.target_class,
+            out_dir,
             result.generation_time_ms,
         )
         return result

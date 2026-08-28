@@ -1,0 +1,90 @@
+{
+  "investigation_id": "INV-2026-000001",
+  "image_identifier": "original.png",
+  "model_name": "efficientnet_b0",
+  "model_version": "sprint3.2-best",
+  "dataset_version": "MAYA-Kaggle-Balanced-v1",
+  "explainer": "advanced_xai",
+  "configuration": {
+    "shap": {
+      "enabled": true,
+      "max_evaluations": 16,
+      "batch_size": 4,
+      "masker_blur_kernel": 32,
+      "visualization": true
+    },
+    "faithfulness": {
+      "enabled": true,
+      "steps": 3,
+      "perturbation_method": "mask",
+      "fraction_per_step": 0.1,
+      "importance_threshold": 0.2
+    },
+    "counterfactual": {
+      "enabled": true,
+      "perturbation_methods": [
+        "mask",
+        "blur",
+        "neutral"
+      ],
+      "importance_threshold": 0.35,
+      "blur_radius": 8,
+      "neutral_value": 0.0
+    },
+    "trust": {
+      "quality": 0.25,
+      "faithfulness": 0.3,
+      "consistency": 0.2,
+      "localization": 0.15,
+      "agreement": 0.1
+    },
+    "primary_cam_explainer": "gradcam",
+    "device_preference": "cpu",
+    "model_name": "efficientnet_b0",
+    "model_version": "sprint3.2-best",
+    "dataset_version": "MAYA-Kaggle-Balanced-v1",
+    "output_resolution": 224,
+    "image_size": 224
+  },
+  "target_class": 0,
+  "target_layer": "features.8",
+  "generation_timestamp": "2026-08-26T15:21:31.586401+00:00",
+  "device": "CPU",
+  "generation_time_ms": 35312.59,
+  "output_artifact_paths": {
+    "shap_heatmap": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_heatmap.png",
+    "shap_overlay": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_overlay.png",
+    "shap_comparison": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_comparison.png",
+    "faithfulness_comparison": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\faithfulness\\faithfulness_comparison.png",
+    "faithfulness_comparison_viz": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\faithfulness\\faithfulness_comparison.png",
+    "counterfactual_comparison": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\counterfactual\\counterfactual_comparison.png",
+    "trust_summary": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\visualizations\\trust_summary.png",
+    "visualizations_shap_overlay": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_overlay.png",
+    "shap_report": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\shap_report.md",
+    "shap_result": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\shap_result.json",
+    "faithfulness_report": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\faithfulness_report.md",
+    "faithfulness_result": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\faithfulness_result.json",
+    "counterfactual_report": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\counterfactual_report.md",
+    "counterfactual_result": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\counterfactual_result.json",
+    "explanation_trust_report": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\explanation_trust_report.md",
+    "advanced_xai_summary": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\advanced_xai_summary.md",
+    "advanced_xai_result": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\advanced_xai_result.json",
+    "xai_audit": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\xai_audit.json"
+  },
+  "software_versions": {
+    "python": "3.11.9",
+    "torch": "2.13.0+cpu",
+    "numpy": "2.4.6",
+    "pillow": "11.0.0",
+    "shap": "0.51.0",
+    "matplotlib": "3.9.3"
+  },
+  "stages_completed": [
+    "cam_analytics",
+    "shap",
+    "faithfulness",
+    "counterfactual",
+    "fusion"
+  ],
+  "notes": "Audit trail for reproducibility. Digital integrity hashing (e.g. SHA-256) is deferred to a later phase."
+}

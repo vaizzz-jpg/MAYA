@@ -1,5 +1,6 @@
-"""Service layer package.
+"""Business services package.
 
-Phase 1 intentionally contains no business services.
-Future modules: case_service, evidence_service, analysis_service, etc.
+Import concrete modules as::
+
+    from backend.app.services import auth_service
 """

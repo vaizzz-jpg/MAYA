@@ -1,0 +1,45 @@
+{
+  "investigation_id": "INV-2026-000001",
+  "image_name": "original.png",
+  "prediction": "REAL",
+  "original_confidence": 68.1009,
+  "original_score": 0.6810087,
+  "target_class": 0,
+  "perturbation_method": "mask",
+  "steps": 3,
+  "deletion_score": 0.0534929,
+  "insertion_proxy_score": 0.02105607,
+  "faithfulness_score": 0.501103,
+  "confidence_drop_important": 5.3493,
+  "confidence_drop_unimportant": 5.1287,
+  "step_results": [
+    {
+      "step": 1,
+      "fraction_masked": 0.100008,
+      "important_score": 0.6607638,
+      "unimportant_score": 0.65155065,
+      "important_drop": 0.0202449,
+      "unimportant_drop": 0.02945805
+    },
+    {
+      "step": 2,
+      "fraction_masked": 0.199996,
+      "important_score": 0.61430591,
+      "unimportant_score": 0.62100667,
+      "important_drop": 0.06670278,
+      "unimportant_drop": 0.06000203
+    },
+    {
+      "step": 3,
+      "fraction_masked": 0.300004,
+      "important_score": 0.60747766,
+      "unimportant_score": 0.6166088,
+      "important_drop": 0.07353103,
+      "unimportant_drop": 0.0643999
+    }
+  ],
+  "visualization_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\faithfulness\\faithfulness_comparison.png",
+  "generation_time_ms": 843.17,
+  "timestamp": "2026-08-26T15:21:30.652927+00:00",
+  "interpretation": "Moderate measured influence of the highlighted regions on the class score. Important-region mask changed the target-class score by about 5.35 percentage points on average across 3 steps, versus 5.13 for less-important regions. This measures model sensitivity under perturbation \u2014 not proof that the model causally 'looked at' those pixels."
+}

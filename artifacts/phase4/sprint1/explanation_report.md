@@ -1,7 +1,7 @@
 # MAYA Explanation Report
 
-- Investigation ID: **INV-2026-000001**
-- Image: `2793.jpg`
+- Investigation ID: **INV-2026-000003**
+- Image: `original.png`
 - Prediction: **REAL**
 - Confidence: **68.10%**
 - REAL probability: `0.681009`
@@ -9,11 +9,11 @@
 - Explainer: `gradcam`
 - Target Layer: `features.8`
 - Target Class Index: `0`
-- Generation Time: `2543.73 ms`
+- Generation Time: `1067.55 ms`
 - Model: `efficientnet_b0` / `sprint3.2-best`
 - Dataset Version: `MAYA-Kaggle-Balanced-v1`
 - Device: `CPU`
-- Timestamp (UTC): `2026-07-20T17:07:29.513019+00:00`
+- Timestamp (UTC): `2026-08-26T15:20:35.854687+00:00`
 
 ## Generated Files
 

@@ -1,8 +1,4 @@
-"""Database initialization helpers.
-
-Why this exists:
-    Schema bootstrap belongs in infrastructure code, not in HTTP routes.
-"""
+"""Database initialization helpers."""
 
 from __future__ import annotations
 
@@ -17,18 +13,16 @@ logger = logging.getLogger("maya.database")
 
 
 def init_database(app: Flask) -> None:
-    """Bind SQLAlchemy and create tables for any imported models.
-
-    Phase 1 note:
-        No business models are registered yet. ``create_all()`` remains
-        safe and establishes the Phase 2 pathway.
-    """
+    """Bind SQLAlchemy and create tables for registered models."""
 
     Path(app.instance_path).mkdir(parents=True, exist_ok=True)
 
     db.init_app(app)
 
     with app.app_context():
+        # Ensure models are registered on metadata
+        import backend.app.models  # noqa: F401
+
         db.create_all()
         logger.info(
             "Database initialized (%s)",

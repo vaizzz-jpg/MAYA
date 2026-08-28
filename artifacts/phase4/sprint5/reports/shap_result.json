@@ -1,0 +1,34 @@
+{
+  "investigation_id": "INV-2026-000001",
+  "explainer_name": "shap",
+  "model_name": "efficientnet_b0",
+  "model_version": "sprint3.2-best",
+  "dataset_version": "MAYA-Kaggle-Balanced-v1",
+  "prediction": "REAL",
+  "confidence": 68.1009,
+  "target_class": 0,
+  "attribution_stats": {
+    "mean_abs": 3.44e-06,
+    "max_abs": 6.15e-06,
+    "mean_positive": 3.4e-06,
+    "mean_negative": -3.49e-06,
+    "positive_fraction": 0.625,
+    "negative_fraction": 0.375
+  },
+  "generation_time_ms": 26712.09,
+  "device": "CPU",
+  "visualization_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_overlay.png",
+  "timestamp": "2026-08-26T15:21:29.804056+00:00",
+  "heatmap_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_heatmap.png",
+  "overlay_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_overlay.png",
+  "comparison_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_comparison.png",
+  "image_name": "original.png",
+  "real_probability": 0.6810086965560913,
+  "fake_probability": 0.3189912438392639,
+  "max_evaluations": 16,
+  "metadata": {
+    "masker": "blur(32)",
+    "signed_visualization": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_signed_contributions.png",
+    "note": "SHAP estimates feature contribution; it is not a Grad-CAM attention map."
+  }
+}

@@ -2,7 +2,7 @@
 
 **Authoritative content:** [`06_ROADMAP_RISKS_PERFORMANCE.md`](06_ROADMAP_RISKS_PERFORMANCE.md)
 
-## Updated delivery order (as of Phase 4 Sprint 4.4)
+## Updated delivery order (as of Phase 4 Sprint 4.5)
 
 | Phase | Focus | Status |
 |-------|-------|--------|
@@ -18,8 +18,9 @@
 | 4.1 | Explainable Intelligence Engine (Grad-CAM foundation) | Complete |
 | 4.2 | Multi-Explainer Framework | Complete |
 | 4.3 | Explanation Analytics & Trust Engine | Complete |
-| **4.4** | **Explainability Validation & Benchmark Suite** | **Complete** |
-| 3 | Auth / Cases / Evidence app features *(product)* | Pending |
+| 4.4 | Explainability Validation & Benchmark Suite | Complete |
+| **4.5** | **Advanced Explainability & Trust Layer** | **Complete** |
+| **3 Product** | **Auth / Cases / Evidence / REST APIs / AI bridge** | **Complete** |
 | 5 | Further product / reports / hardening | Pending |
 
-> Sprint 4.4 benchmarks registered explainers (performance, quality, agreement), ranks them with configurable weights, and produces investigator recommendations — without changing CAM algorithms.
+> Product Phase 3 uses **Flask-Login** sessions (SRS). JWT is deferred. See [`docs/PHASE3_PRODUCT.md`](PHASE3_PRODUCT.md).

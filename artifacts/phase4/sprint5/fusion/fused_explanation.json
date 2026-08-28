@@ -1,0 +1,231 @@
+{
+  "investigation_id": "INV-2026-000001",
+  "image_name": "original.png",
+  "prediction": "REAL",
+  "confidence": 68.1009,
+  "trust": {
+    "trust_score": 65.52,
+    "grade": "Moderate-to-High",
+    "components": {
+      "quality": 68.43,
+      "faithfulness": 50.1103,
+      "localization": 91.48
+    },
+    "weights_used": {
+      "quality": 0.357143,
+      "faithfulness": 0.428571,
+      "localization": 0.214286
+    },
+    "missing_components": [
+      "consistency",
+      "agreement"
+    ],
+    "methodology_note": "MAYA Explanation Trust Score summarizes measured explanation characteristics with configurable weights. It is not a probability that the explanation is scientifically true."
+  },
+  "summary": {
+    "prediction": "REAL",
+    "model_confidence": 68.1009,
+    "primary_visual_evidence": "Primary visual evidence uses `gradcam` activation localization. Explanation quality is 68.4/100 (Moderate). About 58.4% of the map exceeds the activation threshold; peak activation is 1.00. Center of activation is near (row 155.5, col 107.9) with coverage 58.4%. These describe model activation/localization, not legal certainty.",
+    "shap_contribution": "Mixed positive/negative contribution across the image. Mean |SHAP|=0.0000; positive fraction=62.5%, negative fraction=37.5%. SHAP provides attribution estimates, not Grad-CAM attention.",
+    "faithfulness": "Moderate measured influence of the highlighted regions on the class score. Important-region mask changed the target-class score by about 5.35 percentage points on average across 3 steps, versus 5.13 for less-important regions. This measures model sensitivity under perturbation \u2014 not proof that the model causally 'looked at' those pixels.",
+    "counterfactual_sensitivity": "Model counterfactual perturbation experiments show that 'blur' on the important region changed confidence by -8.85 percentage points (REAL 68.1% \u2192 REAL 59.3%). This is evidence of model sensitivity under controlled perturbation, not proof of real-world causation.",
+    "explanation_assessment": "MAYA Explanation Trust Score is 65.5/100 (Moderate-to-High). Components used: quality=68.4 (w=0.36), faithfulness=50.1 (w=0.43), localization=91.5 (w=0.21). Missing: consistency, agreement. This is an engineering summary of measured characteristics, not a probability that the explanation is true.",
+    "caveats": "CAM heatmaps indicate activation/localization. SHAP provides attribution estimates. Faithfulness measures sensitivity to perturbations. Counterfactual experiments measure prediction changes under controlled edits. None of these independently prove real-world causation. Prefer: the model's prediction was strongly associated with highlighted regions \u2014 avoid claims of definite manipulation."
+  },
+  "visual_evidence": {
+    "primary_cam": "gradcam",
+    "analytics": {
+      "quality": {
+        "quality_score": 68.43,
+        "grade": "Moderate",
+        "focus_component": 49.57,
+        "localization_component": 91.48,
+        "consistency_component": 0.0,
+        "components": {
+          "focus_weight": 0.55,
+          "localization_weight": 0.45,
+          "consistency_weight": 0.0
+        }
+      },
+      "focus": {
+        "coverage": 0.583825,
+        "peak_activation": 1.0,
+        "mean_activation": 0.311399,
+        "activation_variance": 0.065986,
+        "activation_entropy": 0.966253,
+        "threshold_used": 0.2
+      },
+      "localization": {
+        "bbox": [
+          41,
+          0,
+          223,
+          223
+        ],
+        "coverage_percentage": 58.3825,
+        "largest_region_area": 29294,
+        "largest_region_fraction": 0.583825,
+        "center_of_attention": [
+          155.4698,
+          107.8847
+        ],
+        "threshold_used": 0.2
+      }
+    }
+  },
+  "shap": {
+    "investigation_id": "INV-2026-000001",
+    "explainer_name": "shap",
+    "model_name": "efficientnet_b0",
+    "model_version": "sprint3.2-best",
+    "dataset_version": "MAYA-Kaggle-Balanced-v1",
+    "prediction": "REAL",
+    "confidence": 68.1009,
+    "target_class": 0,
+    "attribution_stats": {
+      "mean_abs": 3.44e-06,
+      "max_abs": 6.15e-06,
+      "mean_positive": 3.4e-06,
+      "mean_negative": -3.49e-06,
+      "positive_fraction": 0.625,
+      "negative_fraction": 0.375
+    },
+    "generation_time_ms": 26712.09,
+    "device": "CPU",
+    "visualization_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_overlay.png",
+    "timestamp": "2026-08-26T15:21:29.804056+00:00",
+    "heatmap_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_heatmap.png",
+    "overlay_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_overlay.png",
+    "comparison_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_comparison.png",
+    "image_name": "original.png",
+    "real_probability": 0.6810086965560913,
+    "fake_probability": 0.3189912438392639,
+    "max_evaluations": 16,
+    "metadata": {
+      "masker": "blur(32)",
+      "signed_visualization": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_signed_contributions.png",
+      "note": "SHAP estimates feature contribution; it is not a Grad-CAM attention map."
+    }
+  },
+  "faithfulness": {
+    "investigation_id": "INV-2026-000001",
+    "image_name": "original.png",
+    "prediction": "REAL",
+    "original_confidence": 68.1009,
+    "original_score": 0.6810087,
+    "target_class": 0,
+    "perturbation_method": "mask",
+    "steps": 3,
+    "deletion_score": 0.0534929,
+    "insertion_proxy_score": 0.02105607,
+    "faithfulness_score": 0.501103,
+    "confidence_drop_important": 5.3493,
+    "confidence_drop_unimportant": 5.1287,
+    "step_results": [
+      {
+        "step": 1,
+        "fraction_masked": 0.100008,
+        "important_score": 0.6607638,
+        "unimportant_score": 0.65155065,
+        "important_drop": 0.0202449,
+        "unimportant_drop": 0.02945805
+      },
+      {
+        "step": 2,
+        "fraction_masked": 0.199996,
+        "important_score": 0.61430591,
+        "unimportant_score": 0.62100667,
+        "important_drop": 0.06670278,
+        "unimportant_drop": 0.06000203
+      },
+      {
+        "step": 3,
+        "fraction_masked": 0.300004,
+        "important_score": 0.60747766,
+        "unimportant_score": 0.6166088,
+        "important_drop": 0.07353103,
+        "unimportant_drop": 0.0643999
+      }
+    ],
+    "visualization_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\faithfulness\\faithfulness_comparison.png",
+    "generation_time_ms": 843.17,
+    "timestamp": "2026-08-26T15:21:30.652927+00:00",
+    "interpretation": "Moderate measured influence of the highlighted regions on the class score. Important-region mask changed the target-class score by about 5.35 percentage points on average across 3 steps, versus 5.13 for less-important regions. This measures model sensitivity under perturbation \u2014 not proof that the model causally 'looked at' those pixels."
+  },
+  "counterfactual": {
+    "investigation_id": "INV-2026-000001",
+    "image_name": "original.png",
+    "original_prediction": "REAL",
+    "original_confidence": 68.1009,
+    "target_class": 0,
+    "experiments": [
+      {
+        "perturbation_strategy": "mask",
+        "affected_region": "bbox[r0:223,c0:223] coverage=50.0%",
+        "original_prediction": "REAL",
+        "original_confidence": 68.1009,
+        "perturbed_prediction": "REAL",
+        "perturbed_confidence": 61.6437,
+        "confidence_delta": -6.4572,
+        "prediction_changed": false,
+        "original_score": 0.6810087,
+        "perturbed_score": 0.61643666,
+        "score_delta": -0.06457204,
+        "timestamp": "2026-08-26T15:21:30.719285+00:00"
+      },
+      {
+        "perturbation_strategy": "blur",
+        "affected_region": "bbox[r0:223,c0:223] coverage=50.0%",
+        "original_prediction": "REAL",
+        "original_confidence": 68.1009,
+        "perturbed_prediction": "REAL",
+        "perturbed_confidence": 59.2536,
+        "confidence_delta": -8.8473,
+        "prediction_changed": false,
+        "original_score": 0.6810087,
+        "perturbed_score": 0.59253591,
+        "score_delta": -0.08847278,
+        "timestamp": "2026-08-26T15:21:30.719285+00:00"
+      },
+      {
+        "perturbation_strategy": "neutral",
+        "affected_region": "bbox[r0:223,c0:223] coverage=50.0%",
+        "original_prediction": "REAL",
+        "original_confidence": 68.1009,
+        "perturbed_prediction": "REAL",
+        "perturbed_confidence": 61.6437,
+        "confidence_delta": -6.4572,
+        "prediction_changed": false,
+        "original_score": 0.6810087,
+        "perturbed_score": 0.61643666,
+        "score_delta": -0.06457204,
+        "timestamp": "2026-08-26T15:21:30.719285+00:00"
+      }
+    ],
+    "visualization_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\counterfactual\\counterfactual_comparison.png",
+    "generation_time_ms": 929.17,
+    "timestamp": "2026-08-26T15:21:30.719285+00:00",
+    "interpretation": "Model counterfactual perturbation experiments show that 'blur' on the important region changed confidence by -8.85 percentage points (REAL 68.1% \u2192 REAL 59.3%). This is evidence of model sensitivity under controlled perturbation, not proof of real-world causation."
+  },
+  "artifact_paths": {
+    "shap_heatmap": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_heatmap.png",
+    "shap_overlay": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_overlay.png",
+    "shap_comparison": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_comparison.png",
+    "faithfulness_comparison": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\faithfulness\\faithfulness_comparison.png",
+    "faithfulness_comparison_viz": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\faithfulness\\faithfulness_comparison.png",
+    "counterfactual_comparison": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\counterfactual\\counterfactual_comparison.png",
+    "trust_summary": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\visualizations\\trust_summary.png",
+    "visualizations_shap_overlay": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\shap\\shap_overlay.png",
+    "shap_report": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\shap_report.md",
+    "shap_result": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\shap_result.json",
+    "faithfulness_report": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\faithfulness_report.md",
+    "faithfulness_result": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\faithfulness_result.json",
+    "counterfactual_report": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\counterfactual_report.md",
+    "counterfactual_result": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\counterfactual_result.json",
+    "explanation_trust_report": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\explanation_trust_report.md",
+    "advanced_xai_summary": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\advanced_xai_summary.md",
+    "advanced_xai_result": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\advanced_xai_result.json",
+    "xai_audit": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\reports\\xai_audit.json"
+  },
+  "timestamp": "2026-08-26T15:21:31.586401+00:00"
+}

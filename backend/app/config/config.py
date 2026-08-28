@@ -42,6 +42,13 @@ class BaseConfig:
 
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
     MAX_CONTENT_LENGTH: int = int(os.getenv("MAX_CONTENT_LENGTH", str(16 * 1024 * 1024)))
+    # Session cookie settings for Flask-Login
+    SESSION_COOKIE_HTTPONLY: bool = True
+    SESSION_COOKIE_SAMESITE: str = "Lax"
+    REMEMBER_COOKIE_HTTPONLY: bool = True
+    ALLOW_PUBLIC_REGISTRATION: bool = os.getenv(
+        "ALLOW_PUBLIC_REGISTRATION", "true"
+    ).lower() in {"1", "true", "yes", "on"}
 
 
 class DevelopmentConfig(BaseConfig):
@@ -56,6 +63,8 @@ class TestingConfig(BaseConfig):
     TESTING: bool = True
     DEBUG: bool = True
     SQLALCHEMY_DATABASE_URI: str = "sqlite:///:memory:"
+    WTF_CSRF_ENABLED: bool = False
+    # Isolated upload root set by tests via app.config override when needed
 
 
 class ProductionConfig(BaseConfig):

@@ -1,0 +1,59 @@
+"""Domain enums for MAYA product entities."""
+
+from __future__ import annotations
+
+import enum
+
+
+class UserRole(str, enum.Enum):
+    INVESTIGATOR = "INVESTIGATOR"
+    ADMIN = "ADMIN"
+
+
+class CaseStatus(str, enum.Enum):
+    OPEN = "OPEN"
+    IN_PROGRESS = "IN_PROGRESS"
+    CLOSED = "CLOSED"
+    ARCHIVED = "ARCHIVED"
+
+
+class CasePriority(str, enum.Enum):
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
+class EvidenceStatus(str, enum.Enum):
+    UPLOADED = "UPLOADED"
+    PROCESSING = "PROCESSING"
+    ANALYZED = "ANALYZED"
+    FAILED = "FAILED"
+    ARCHIVED = "ARCHIVED"
+
+
+class AnalysisStatus(str, enum.Enum):
+    NONE = "NONE"
+    QUEUED = "QUEUED"
+    PROCESSING = "PROCESSING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class IntegrityStatus(str, enum.Enum):
+    VALID = "VALID"
+    TAMPERED = "TAMPERED"
+    ERROR = "ERROR"
+
+
+class AuditEventType(str, enum.Enum):
+    USER_REGISTERED = "USER_REGISTERED"
+    USER_LOGIN = "USER_LOGIN"
+    CASE_CREATED = "CASE_CREATED"
+    CASE_UPDATED = "CASE_UPDATED"
+    CASE_CLOSED = "CASE_CLOSED"
+    EVIDENCE_UPLOADED = "EVIDENCE_UPLOADED"
+    EVIDENCE_VERIFIED = "EVIDENCE_VERIFIED"
+    ANALYSIS_STARTED = "ANALYSIS_STARTED"
+    ANALYSIS_COMPLETED = "ANALYSIS_COMPLETED"
+    ANALYSIS_FAILED = "ANALYSIS_FAILED"
+    REPORT_GENERATED = "REPORT_GENERATED"

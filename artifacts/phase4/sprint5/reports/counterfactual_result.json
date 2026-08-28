@@ -1,0 +1,55 @@
+{
+  "investigation_id": "INV-2026-000001",
+  "image_name": "original.png",
+  "original_prediction": "REAL",
+  "original_confidence": 68.1009,
+  "target_class": 0,
+  "experiments": [
+    {
+      "perturbation_strategy": "mask",
+      "affected_region": "bbox[r0:223,c0:223] coverage=50.0%",
+      "original_prediction": "REAL",
+      "original_confidence": 68.1009,
+      "perturbed_prediction": "REAL",
+      "perturbed_confidence": 61.6437,
+      "confidence_delta": -6.4572,
+      "prediction_changed": false,
+      "original_score": 0.6810087,
+      "perturbed_score": 0.61643666,
+      "score_delta": -0.06457204,
+      "timestamp": "2026-08-26T15:21:30.719285+00:00"
+    },
+    {
+      "perturbation_strategy": "blur",
+      "affected_region": "bbox[r0:223,c0:223] coverage=50.0%",
+      "original_prediction": "REAL",
+      "original_confidence": 68.1009,
+      "perturbed_prediction": "REAL",
+      "perturbed_confidence": 59.2536,
+      "confidence_delta": -8.8473,
+      "prediction_changed": false,
+      "original_score": 0.6810087,
+      "perturbed_score": 0.59253591,
+      "score_delta": -0.08847278,
+      "timestamp": "2026-08-26T15:21:30.719285+00:00"
+    },
+    {
+      "perturbation_strategy": "neutral",
+      "affected_region": "bbox[r0:223,c0:223] coverage=50.0%",
+      "original_prediction": "REAL",
+      "original_confidence": 68.1009,
+      "perturbed_prediction": "REAL",
+      "perturbed_confidence": 61.6437,
+      "confidence_delta": -6.4572,
+      "prediction_changed": false,
+      "original_score": 0.6810087,
+      "perturbed_score": 0.61643666,
+      "score_delta": -0.06457204,
+      "timestamp": "2026-08-26T15:21:30.719285+00:00"
+    }
+  ],
+  "visualization_path": "C:\\Users\\Asus\\Desktop\\MAYA\\artifacts\\phase4\\sprint5\\counterfactual\\counterfactual_comparison.png",
+  "generation_time_ms": 929.17,
+  "timestamp": "2026-08-26T15:21:30.719285+00:00",
+  "interpretation": "Model counterfactual perturbation experiments show that 'blur' on the important region changed confidence by -8.85 percentage points (REAL 68.1% \u2192 REAL 59.3%). This is evidence of model sensitivity under controlled perturbation, not proof of real-world causation."
+}
