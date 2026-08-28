@@ -1,4 +1,4 @@
-# MAYA — Media Authenticity Analyzer
+#  MAYA — Media Authenticity Analyzer
 
 AI-powered **digital evidence investigation platform** for authenticity assessment, explainable analysis, and professional investigation workflows.
 
