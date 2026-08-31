@@ -85,6 +85,14 @@ def analysis_to_dict(run: AnalysisRun) -> dict[str, Any]:
             "overlay": run.overlay_path,
             "explanation_json": run.explanation_json_path,
         }
+    advanced_xai_results = None
+    if run.raw_result_json:
+        try:
+            import json as _json
+            parsed = _json.loads(run.raw_result_json)
+            advanced_xai_results = parsed.get("advanced_xai_results")
+        except Exception:
+            advanced_xai_results = None
     return {
         "analysis_id": run.id,
         "investigation_id": run.investigation_id,
@@ -97,6 +105,9 @@ def analysis_to_dict(run: AnalysisRun) -> dict[str, Any]:
         "model_version": run.model_version,
         "dataset_version": run.dataset_version,
         "artifact_dir": run.artifact_dir,
+        "trust_score": run.trust_score,
+        "quality_score": run.quality_score,
+        "advanced_xai_results": advanced_xai_results,
         "error_message": run.error_message,
         "started_at": run.started_at.isoformat() if run.started_at else None,
         "completed_at": run.completed_at.isoformat() if run.completed_at else None,

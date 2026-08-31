@@ -1,6 +1,6 @@
 # MAYA — Phase 4 Sprint 4.5: Advanced Explainability & Trust Layer
 
-**Status:** Complete
+**Status:** Complete  
 **Scope:** SHAP attributions, faithfulness testing, counterfactual perturbations, explanation fusion, configurable trust score, investigator summary, and XAI audit trail — **no CAM algorithm changes, no Phase 5, no SHA-256, no Flask/UI/PDF**
 
 ---
@@ -9,10 +9,10 @@
 
 Extend the Explainable Intelligence Engine so investigators can answer:
 
-1. **WHERE** did the model focus? — existing CAM methods (unchanged)
-2. **WHAT** contributed to the prediction? — SHAP attributions
-3. **IS** the explanation faithful to the model? — deletion/occlusion faithfulness
-4. **WHAT** controlled changes alter the score? — model counterfactual perturbation experiments
+1. **WHERE** did the model focus? — existing CAM methods (unchanged)  
+2. **WHAT** contributed to the prediction? — SHAP attributions  
+3. **IS** the explanation faithful to the model? — deletion/occlusion faithfulness  
+4. **WHAT** controlled changes alter the score? — model counterfactual perturbation experiments  
 
 Results are fused into a structured trust assessment and plain-language summary.
 
@@ -62,18 +62,18 @@ python -m pip install "shap>=0.44.0" "opencv-python-headless>=4.8.0"
 python -m pip install -r requirements.txt
 ```
 
-Do **not** install both `opencv-python` and `opencv-python-headless`.
+Do **not** install both `opencv-python` and `opencv-python-headless`.  
 If SHAP/OpenCV is missing when SHAP is requested, MAYA raises `ShapDependencyError` with an actionable install hint — it does **not** silently fall back to Grad-CAM.
 
 Pipeline:
 
-1. Reuse loaded EfficientNet-B0 + Sprint 3.4 preprocessing
-2. Convert the normalized tensor to HWC `[0,1]` for the masker
-3. Model function re-applies ImageNet normalization and returns class probabilities
-4. Run SHAP with a hard `max_evaluations` budget (default **32**, CPU-first)
-5. Reduce values to a signed HxW attribution map for the target class
-6. Split positive / negative contributions; normalize for display
-7. Emit `ShapResult` dataclass + visualizations
+1. Reuse loaded EfficientNet-B0 + Sprint 3.4 preprocessing  
+2. Convert the normalized tensor to HWC `[0,1]` for the masker  
+3. Model function re-applies ImageNet normalization and returns class probabilities  
+4. Run SHAP with a hard `max_evaluations` budget (default **32**, CPU-first)  
+5. Reduce values to a signed HxW attribution map for the target class  
+6. Split positive / negative contributions; normalize for display  
+7. Emit `ShapResult` dataclass + visualizations  
 
 Artefacts: `shap_heatmap.png`, `shap_overlay.png`, `shap_comparison.png` (explicitly labeled as **contribution**, not attention).
 
@@ -96,18 +96,18 @@ Module: `ai/explainability/faithfulness/`
 
 Deletion/occlusion protocol:
 
-1. Record original target-class score
-2. Rank pixels by an importance map (prefer `|SHAP|`, else primary CAM)
-3. For `steps` (default **5**), progressively perturb the top-k important vs least-important pixels
-4. Re-run the **same loaded model** under `inference_mode` / `no_grad`
-5. Compare score drops
+1. Record original target-class score  
+2. Rank pixels by an importance map (prefer `|SHAP|`, else primary CAM)  
+3. For `steps` (default **5**), progressively perturb the top-k important vs least-important pixels  
+4. Re-run the **same loaded model** under `inference_mode` / `no_grad`  
+5. Compare score drops  
 
 Reported metrics:
 
-- prediction / confidence drop (important vs less-important)
-- deletion score
-- insertion proxy (relative advantage of important vs unimportant deletion)
-- **faithfulness score** ∈ `[0, 1]` summarizing measured influence
+- prediction / confidence drop (important vs less-important)  
+- deletion score  
+- insertion proxy (relative advantage of important vs unimportant deletion)  
+- **faithfulness score** ∈ `[0, 1]` summarizing measured influence  
 
 Wording used in reports: **measured influence** / **model sensitivity to highlighted regions** — not causal proof that the model “looked at” a region.
 
@@ -119,9 +119,9 @@ Module: `ai/explainability/counterfactual/`
 
 These are **model counterfactual perturbation experiments**, not generative edits:
 
-- Identify an important region (thresholded importance map)
-- Apply configurable strategies: `mask`, `blur`, `neutral`
-- Compare original vs perturbed prediction and confidence
+- Identify an important region (thresholded importance map)  
+- Apply configurable strategies: `mask`, `blur`, `neutral`  
+- Compare original vs perturbed prediction and confidence  
 
 They measure prediction change under controlled perturbation — **not** real-world causation and **not** photorealistic counterfactuals.
 
@@ -133,10 +133,10 @@ Module: `ai/explainability/fusion/`
 
 Fusion **preserves distinct meanings**:
 
-- Visual evidence (CAM analytics)
-- SHAP contribution
-- Faithfulness
-- Counterfactual sensitivity
+- Visual evidence (CAM analytics)  
+- SHAP contribution  
+- Faithfulness  
+- Counterfactual sensitivity  
 
 It does **not** naively average unrelated raw scores into one opaque number without documenting components. Missing stages are omitted; trust weights are renormalized over available components only (no invented values).
 
@@ -166,38 +166,38 @@ Weights are configurable and always normalized. Grades: High / Moderate-to-High 
 
 `XaiAuditRecord` (`ai/explainability/fusion/audit.py`) records:
 
-- investigation_id, image identifier
-- model name / version, dataset version
-- configuration snapshot
-- target class / target layer (when applicable)
-- timestamp, device, generation time
-- artefact paths
-- software/library versions (`torch`, `numpy`, `shap`, …)
+- investigation_id, image identifier  
+- model name / version, dataset version  
+- configuration snapshot  
+- target class / target layer (when applicable)  
+- timestamp, device, generation time  
+- artefact paths  
+- software/library versions (`torch`, `numpy`, `shap`, …)  
 
-Written to `artifacts/phase4/sprint5/reports/xai_audit.json`.
+Written to `artifacts/phase4/sprint5/reports/xai_audit.json`.  
 **SHA-256 / digital integrity is intentionally deferred** (later phases).
 
 ---
 
 ## 11. Performance considerations (8 GB / CPU-first)
 
-- Single cached `ModelLoader` instance
-- SHAP `max_evaluations` capped (default 32)
-- Faithfulness `steps` capped (default 5)
-- Counterfactual limited to configured strategies
-- `torch.inference_mode` / `no_grad` for prediction paths
-- Intermediate tensors released after stages
-- Stages can be disabled via configuration
+- Single cached `ModelLoader` instance  
+- SHAP `max_evaluations` capped (default 32)  
+- Faithfulness `steps` capped (default 5)  
+- Counterfactual limited to configured strategies  
+- `torch.inference_mode` / `no_grad` for prediction paths  
+- Intermediate tensors released after stages  
+- Stages can be disabled via configuration  
 
 ---
 
 ## 12. Limitations
 
-- SHAP Partition estimates with few evaluations are approximate
-- Faithfulness and counterfactual use occlusion/blur/neutral fills — synthetic edits
-- Trust score weights are heuristic engineering choices
-- Primary CAM analytics in the advanced run use a single configured explainer (default Grad-CAM)
-- No backend/UI/PDF integration in this sprint
+- SHAP Partition estimates with few evaluations are approximate  
+- Faithfulness and counterfactual use occlusion/blur/neutral fills — synthetic edits  
+- Trust score weights are heuristic engineering choices  
+- Primary CAM analytics in the advanced run use a single configured explainer (default Grad-CAM)  
+- No backend/UI/PDF integration in this sprint  
 
 ---
 
@@ -205,10 +205,10 @@ Written to `artifacts/phase4/sprint5/reports/xai_audit.json`.
 
 Explicitly:
 
-- **CAM** heatmaps indicate model activation/localization.
-- **SHAP** provides attribution estimates.
-- **Faithfulness** measures sensitivity of the model to perturbations of highlighted regions.
-- **Counterfactual experiments** measure prediction changes under controlled perturbations.
+- **CAM** heatmaps indicate model activation/localization.  
+- **SHAP** provides attribution estimates.  
+- **Faithfulness** measures sensitivity of the model to perturbations of highlighted regions.  
+- **Counterfactual experiments** measure prediction changes under controlled perturbations.  
 
 **None of these independently prove real-world causation.** Prefer investigator language such as: *“The model’s prediction was strongly associated with…”* rather than *“The face is definitely manipulated because…”*.
 
@@ -216,10 +216,10 @@ Explicitly:
 
 ## 14. Future improvements
 
-- Persist float attribution maps (`.npy`) for lossless analytics
-- Optional calibrated trust models
-- Attach advanced XAI packages to Phase 6 integrity + Phase 7 case reports
-- Backend APIs (Phase 8) to request advanced explanations
+- Persist float attribution maps (`.npy`) for lossless analytics  
+- Optional calibrated trust models  
+- Attach advanced XAI packages to Phase 6 integrity + Phase 7 case reports  
+- Backend APIs (Phase 8) to request advanced explanations  
 
 ---
 
@@ -297,8 +297,8 @@ Phase 3 / 3.5 / 4.1–4.4 suites must continue to pass.
 
 ## References
 
-- Selvaraju et al., *Grad-CAM*, ICCV 2017.
-- Lundberg & Lee, *A Unified Approach to Interpreting Model Predictions*, NeurIPS 2017.
+- Selvaraju et al., *Grad-CAM*, ICCV 2017.  
+- Lundberg & Lee, *A Unified Approach to Interpreting Model Predictions*, NeurIPS 2017.  
 
 Implementation uses the maintained `shap` library and MAYA’s modular architecture — tutorial code is not copied.
 
@@ -306,14 +306,14 @@ Implementation uses the maintained `shap` library and MAYA’s modular architect
 
 ## Definition of Done
 
-- [x] SHAP on EfficientNet-B0 pipeline (real attributions)
-- [x] Faithfulness measured results
-- [x] Counterfactual perturbation experiments
-- [x] Fusion + configurable trust score
-- [x] Investigator summary + audit trail
-- [x] Reports / visualizations from actual computation
-- [x] CPU-friendly limits
-- [x] CAM algorithms / Phase 4.4 untouched
-- [x] Tests + documentation
+- [x] SHAP on EfficientNet-B0 pipeline (real attributions)  
+- [x] Faithfulness measured results  
+- [x] Counterfactual perturbation experiments  
+- [x] Fusion + configurable trust score  
+- [x] Investigator summary + audit trail  
+- [x] Reports / visualizations from actual computation  
+- [x] CPU-friendly limits  
+- [x] CAM algorithms / Phase 4.4 untouched  
+- [x] Tests + documentation  
 
 **STOP after Sprint 4.5.** Do not implement Phase 5, SHA-256, PDF, Flask APIs, or frontend work in this sprint.

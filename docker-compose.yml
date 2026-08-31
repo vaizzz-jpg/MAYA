@@ -1,0 +1,38 @@
+services:
+  maya-backend:
+    build: .
+    image: maya-backend:latest
+    container_name: maya-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: production
+      SECRET_KEY: ${SECRET_KEY:-please-change-this-secret-key}
+      LOG_LEVEL: INFO
+      ALLOW_PUBLIC_REGISTRATION: ${ALLOW_PUBLIC_REGISTRATION:-false}
+      MAX_CONTENT_LENGTH: 16777216
+    volumes:
+      - maya-db:/app/backend/instance
+      - maya-uploads:/app/uploads
+      - maya-reports:/app/reports
+      - maya-logs:/app/logs
+      - maya-investigations:/app/artifacts/investigations
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:5000/health', timeout=3).status==200 else 1)"]
+      interval: 60s
+      timeout: 10s
+      start_period: 45s
+      retries: 3
+
+volumes:
+  maya-db:
+    driver: local
+  maya-uploads:
+    driver: local
+  maya-reports:
+    driver: local
+  maya-logs:
+    driver: local
+  maya-investigations:
+    driver: local

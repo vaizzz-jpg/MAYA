@@ -1,7 +1,7 @@
 # MAYA — Phase 3 Product Architecture
 
-**Status:** Design / inspection complete — implementation gated on auth decision
-**Scope:** Authentication, Case Management, Evidence Management, Backend APIs, AI ↔ Backend Integration
+**Status:** Design / inspection complete — implementation gated on auth decision  
+**Scope:** Authentication, Case Management, Evidence Management, Backend APIs, AI ↔ Backend Integration  
 **Constraint:** Reuse existing Flask + SQLAlchemy + AI/XAI subsystems; do not rebuild them
 
 ---
@@ -39,10 +39,10 @@ logs/              Rotating maya.log
 
 ### 1.3 Database technology
 
-- **ORM:** Flask-SQLAlchemy + SQLAlchemy 2.x
-- **Default DB:** SQLite at `backend/instance/maya.db`
-- **Test DB:** `sqlite:///:memory:` via `TestingConfig`
-- **Migrations:** Not yet (Flask-Migrate deferred; `create_all` acceptable for this product sprint if documented)
+- **ORM:** Flask-SQLAlchemy + SQLAlchemy 2.x  
+- **Default DB:** SQLite at `backend/instance/maya.db`  
+- **Test DB:** `sqlite:///:memory:` via `TestingConfig`  
+- **Migrations:** Not yet (Flask-Migrate deferred; `create_all` acceptable for this product sprint if documented)  
 - **Design source of truth:** `docs/04_DATABASE_DESIGN.md`
 
 ### 1.4 AI / XAI public integration APIs (reuse only)
@@ -63,12 +63,12 @@ logs/              Rotating maya.log
 
 ### 1.6 What is missing (product)
 
-- User / Case / Evidence / Analysis / Audit ORM models
-- Auth (login, roles, protected APIs)
-- Case / Evidence / Analysis REST (or JSON) APIs
-- Evidence upload + integrity verify endpoints
-- `AnalysisService` bridge to inference + XAI
-- Product audit log persistence
+- User / Case / Evidence / Analysis / Audit ORM models  
+- Auth (login, roles, protected APIs)  
+- Case / Evidence / Analysis REST (or JSON) APIs  
+- Evidence upload + integrity verify endpoints  
+- `AnalysisService` bridge to inference + XAI  
+- Product audit log persistence  
 - Backend pytest coverage (currently **zero** Flask tests)
 
 ---
@@ -214,8 +214,8 @@ Aligned with `docs/04_DATABASE_DESIGN.md`, extended for analysis status and evid
 
 **Recommendation (consistent with existing MAYA design):**
 
-1. Prefer **Flask-Login + Werkzeug** sessions for the investigator web app (SRS).
-2. If REST clients need tokens later, add JWT as an **optional** API auth mode without removing sessions.
+1. Prefer **Flask-Login + Werkzeug** sessions for the investigator web app (SRS).  
+2. If REST clients need tokens later, add JWT as an **optional** API auth mode without removing sessions.  
 3. If product owners insist on JWT-only for this sprint, document the intentional SRS deviation and add `PyJWT` / Flask-JWT-Extended carefully.
 
 Password hashing: **Werkzeug** `generate_password_hash` / `check_password_hash` (already a dependency).
@@ -258,11 +258,11 @@ API: `POST/GET /api/cases`, `GET/PATCH /api/cases/{case_id}`, `POST /api/cases/{
 Upload → UPLOADED → (analyze) PROCESSING → ANALYZED | FAILED → ARCHIVED
 ```
 
-1. Validate extension / size / MIME against inference-supported image set.
-2. Generate safe `stored_filename` (UUID-based); never trust client filename for paths.
-3. Store under `UPLOAD_DIR / cases / {case_id} / {stored_filename}`.
-4. Compute SHA-256 via existing `hash_file`.
-5. Persist metadata + hash.
+1. Validate extension / size / MIME against inference-supported image set.  
+2. Generate safe `stored_filename` (UUID-based); never trust client filename for paths.  
+3. Store under `UPLOAD_DIR / cases / {case_id} / {stored_filename}`.  
+4. Compute SHA-256 via existing `hash_file`.  
+5. Persist metadata + hash.  
 6. Audit `EVIDENCE_UPLOADED`.
 
 Integrity verify: re-hash file bytes → compare to `sha256_hash` → `VALID` | `TAMPERED` | `ERROR`.
@@ -324,12 +324,12 @@ OpenAPI: Flask does not auto-generate like FastAPI; document endpoints in `docs/
 
 ## 9. Security model
 
-- Authenticated identity from session/JWT context — **never** trust client `user_id`.
-- Case/evidence access via ownership (+ ADMIN).
-- Path traversal blocked in storage layer.
-- Upload limits via `MAX_CONTENT_LENGTH`.
-- Parameterized ORM queries only.
-- No stack traces in JSON error bodies.
+- Authenticated identity from session/JWT context — **never** trust client `user_id`.  
+- Case/evidence access via ownership (+ ADMIN).  
+- Path traversal blocked in storage layer.  
+- Upload limits via `MAX_CONTENT_LENGTH`.  
+- Parameterized ORM queries only.  
+- No stack traces in JSON error bodies.  
 - Secrets only from env (`SECRET_KEY`, future JWT secret).
 
 ---
@@ -351,8 +351,8 @@ DB stores **paths/references**, not image blobs.
 
 Event types (minimum):
 
-`USER_REGISTERED`, `USER_LOGIN`, `CASE_CREATED`, `CASE_UPDATED`, `CASE_CLOSED`,
-`EVIDENCE_UPLOADED`, `EVIDENCE_VERIFIED`, `ANALYSIS_STARTED`, `ANALYSIS_COMPLETED`,
+`USER_REGISTERED`, `USER_LOGIN`, `CASE_CREATED`, `CASE_UPDATED`, `CASE_CLOSED`,  
+`EVIDENCE_UPLOADED`, `EVIDENCE_VERIFIED`, `ANALYSIS_STARTED`, `ANALYSIS_COMPLETED`,  
 `ANALYSIS_FAILED`, `REPORT_GENERATED` (when applicable)
 
 Never store passwords or tokens in `details_json`.
@@ -389,13 +389,13 @@ Use `create_app("testing")` + in-memory SQLite.
 
 ## 14. Implementation order (after auth decision)
 
-1. Models + DB create_all
-2. Auth
-3. Cases
-4. Evidence + SHA-256
-5. Audit service
-6. Analysis integration
-7. Full regression
+1. Models + DB create_all  
+2. Auth  
+3. Cases  
+4. Evidence + SHA-256  
+5. Audit service  
+6. Analysis integration  
+7. Full regression  
 
 ---
 

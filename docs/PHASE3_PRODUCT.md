@@ -1,7 +1,7 @@
 # MAYA — Phase 3 Product Layer
 
-**Status:** Complete (Flask-Login sessions; JWT deferred by design)
-**Scope:** Authentication, cases, evidence, integrity, audit, REST APIs, AI orchestration
+**Status:** Complete (Flask-Login sessions; JWT deferred by design)  
+**Scope:** Authentication, cases, evidence, integrity, audit, REST APIs, AI orchestration  
 **Auth decision:** Flask-Login + Werkzeug (SRS-aligned) — not JWT
 
 Architecture detail: [`PHASE3_PRODUCT_ARCHITECTURE.md`](PHASE3_PRODUCT_ARCHITECTURE.md)
@@ -46,7 +46,7 @@ Backend **orchestrates**; `ai/` **computes**. Routes never construct models or G
 
 ## 3. Case lifecycle
 
-Statuses: `OPEN` → `IN_PROGRESS` → `CLOSED` → `ARCHIVED`
+Statuses: `OPEN` → `IN_PROGRESS` → `CLOSED` → `ARCHIVED`  
 Stable ID: `CASE-YYYY-NNNNNN`
 
 | Method | Path | Notes |
@@ -63,7 +63,7 @@ Stable ID: `CASE-YYYY-NNNNNN`
 
 Statuses: `UPLOADED` → `PROCESSING` → `ANALYZED` | `FAILED` → `ARCHIVED`
 
-Storage: `uploads/cases/{case_id}/{uuid}{ext}`
+Storage: `uploads/cases/{case_id}/{uuid}{ext}`  
 SHA-256 via existing `ai.datasets.utils.checksums.hash_file`.
 
 | Method | Path | Notes |
@@ -79,8 +79,8 @@ Allowed extensions: `.jpg`, `.jpeg`, `.png`, `.bmp`, `.webp` (match inference).
 
 ## 5. Database model
 
-Tables: `users`, `cases`, `evidence`, `analysis_runs`, `audit_logs`
-ORM: `backend/app/models/entities.py`
+Tables: `users`, `cases`, `evidence`, `analysis_runs`, `audit_logs`  
+ORM: `backend/app/models/entities.py`  
 Default DB: `backend/instance/maya.db` (SQLite)
 
 ---
@@ -102,10 +102,10 @@ Phase 1 HTML shell remains at `/` and `/health`.
 
 `AnalysisService.analyze_evidence`:
 
-1. Ownership + optional integrity check
-2. `run_inference(path)` → `InferencePipeline`
-3. Optional `run_explanation(...)` → `ExplainabilityEngine`
-4. Persist `analysis_runs` + artefact paths under `artifacts/investigations/{INV-...}/`
+1. Ownership + optional integrity check  
+2. `run_inference(path)` → `InferencePipeline`  
+3. Optional `run_explanation(...)` → `ExplainabilityEngine`  
+4. Persist `analysis_runs` + artefact paths under `artifacts/investigations/{INV-...}/`  
 5. Audit `ANALYSIS_*`
 
 | Method | Path |
@@ -124,25 +124,25 @@ Example request:
 
 ## 8. Security
 
-- Session cookies HttpOnly
-- Case/evidence ownership (+ ADMIN)
-- Safe filenames / path confinement under `UPLOAD_DIR`
-- Upload size via `MAX_CONTENT_LENGTH`
-- ORM parameterized queries
-- No passwords/tokens in audit or API responses
+- Session cookies HttpOnly  
+- Case/evidence ownership (+ ADMIN)  
+- Safe filenames / path confinement under `UPLOAD_DIR`  
+- Upload size via `MAX_CONTENT_LENGTH`  
+- ORM parameterized queries  
+- No passwords/tokens in audit or API responses  
 
 ---
 
 ## 9. Audit
 
-Append-only `audit_logs`. Events include registration, login, case/evidence/analysis lifecycle.
+Append-only `audit_logs`. Events include registration, login, case/evidence/analysis lifecycle.  
 `GET /api/audit` — own events (ADMIN: all, capped).
 
 ---
 
 ## 10. Error handling
 
-`MayaProductError` hierarchy → JSON status codes (`backend/app/exceptions.py`).
+`MayaProductError` hierarchy → JSON status codes (`backend/app/exceptions.py`).  
 Unhandled analysis failures → `500 analysis_failed` after persisting FAILED status.
 
 ---
@@ -182,13 +182,13 @@ For production: strong `SECRET_KEY`, HTTPS, disable public registration if neede
 
 ## 13. Future improvements
 
-- JWT optional for external API clients
-- Flask-Migrate / Alembic
-- Evidence archive/delete endpoints
-- Async analysis queue
-- OpenAPI (e.g. flasgger)
-- PDF reports (Phase later)
-- Wire Advanced XAI (Sprint 4.5) into analyze options
+- JWT optional for external API clients  
+- Flask-Migrate / Alembic  
+- Evidence archive/delete endpoints  
+- Async analysis queue  
+- OpenAPI (e.g. flasgger)  
+- PDF reports (Phase later)  
+- Wire Advanced XAI (Sprint 4.5) into analyze options  
 
 ---
 

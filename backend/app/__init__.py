@@ -101,3 +101,27 @@ def _register_error_handlers(app: Flask) -> None:
 
             return api_error("Internal server error", status=500, error_code="server_error")
         return render_template("errors/500.html"), 500
+
+    @app.errorhandler(Exception)
+    def handle_unhandled_exception(error):  # noqa: ANN001, ARG001
+        import logging as _log
+
+        _log.getLogger("maya.backend").exception("Unhandled exception in request")
+        from flask import request
+
+        if request.path.startswith("/api/"):
+            from backend.app.exceptions import MayaProductError
+            from backend.app.schemas import api_error
+
+            if isinstance(error, MayaProductError):
+                return api_error(
+                    error.message,
+                    status=error.status_code,
+                    error_code=error.error_code,
+                )
+            return api_error(
+                "Internal server error",
+                status=500,
+                error_code="unhandled_error",
+            )
+        return render_template("errors/500.html"), 500

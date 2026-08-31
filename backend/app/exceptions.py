@@ -58,3 +58,8 @@ class InvalidEvidenceError(ValidationError):
 class IntegrityCheckError(MayaProductError):
     status_code = 500
     error_code = "integrity_error"
+
+
+class AnalysisProcessingError(MayaProductError):
+    status_code = 500
+    error_code = "analysis_processing_error"

@@ -76,6 +76,23 @@ artifacts/checkpoints/
 artifacts/experiments/
 artifacts/phase3/benchmark/_infer_scratch/
 artifacts/phase3/sprint4/_infer_scratch/
+# Regenerated every inference run — not source-controlled
+artifacts/phase3/sprint4/*.json
+artifacts/phase3/sprint4/*.md
+artifacts/phase3/sprint4/*.txt
+artifacts/phase3/sprint4/*.csv
+artifacts/phase3/sprint4/*.png
+artifacts/phase3/sprint4/*.jpg
+artifacts/phase3/sprint4/*.jpeg
+artifacts/phase3/sprint4/*.pdf
+# Per-investigation forensic bundles — created at runtime by the backend
+artifacts/investigations/*
+!artifacts/investigations/.gitkeep
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Ad-hoc test/debug output
+test_output*.txt
+test_result.txt
+_diag_*.json

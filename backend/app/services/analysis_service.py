@@ -12,7 +12,7 @@ from flask import current_app
 from backend.app.audit import record_audit
 from backend.app.exceptions import AnalysisNotFoundError, AuthorizationError
 from backend.app.extensions import db
-from backend.app.integrations import run_explanation, run_inference
+from backend.app.integrations import run_advanced_xai, run_explanation, run_inference
 from backend.app.models.entities import AnalysisRun, User
 from backend.app.models.enums import (
     AnalysisStatus,
@@ -35,6 +35,7 @@ def analyze_evidence(
     generate_explanation: bool = True,
     explainer: str = "gradcam",
     verify_before_analyze: bool = True,
+    advanced_xai: dict | None = None,
 ) -> AnalysisRun:
     evidence = get_evidence(user, evidence_id)
 
@@ -69,6 +70,9 @@ def analyze_evidence(
     db.session.commit()
 
     path = absolute_evidence_path(evidence)
+    from backend.app.exceptions import MayaProductError
+    from ai.inference.artifacts import write_inference_artifacts
+
     try:
         investigation = run_inference(path)
         run.investigation_id = investigation.investigation_id
@@ -85,6 +89,10 @@ def analyze_evidence(
             / "investigations"
             / investigation.investigation_id
         )
+        artifact_root.mkdir(parents=True, exist_ok=True)
+        # Re-persist inference artefacts into the per-investigation directory so
+        # every forensic bundle is self-contained under artifacts/investigations/.
+        write_inference_artifacts(investigation, artifact_root)
         run.artifact_dir = str(artifact_root)
 
         if generate_explanation:
@@ -100,10 +108,51 @@ def analyze_evidence(
             run.overlay_path = explanation_meta.get("overlay")
             run.explanation_json_path = explanation_meta.get("explanation_json")
             run.explainer_name = explanation_meta.get("explainer", explainer)
+            record_audit(
+                AuditEventType.XAI_GENERATED,
+                user_id=user.id,
+                case_id=evidence.case_id,
+                evidence_id=evidence.id,
+                analysis_id=run.id,
+                details={
+                    "explainer": explainer,
+                    "investigation_id": investigation.investigation_id,
+                },
+            )
+
+        advanced_xai_results: dict | None = None
+        if advanced_xai:
+            adv_xai_dir = artifact_root / "xai" / "advanced"
+            adv_xai_dir.mkdir(parents=True, exist_ok=True)
+            xai_cfg = dict(advanced_xai)
+            xai_cfg.setdefault("explainer", explainer or "gradcam")
+            advanced_xai_results = run_advanced_xai(
+                path,
+                investigation_id=investigation.investigation_id,
+                artifact_dir=adv_xai_dir,
+                xai_config=xai_cfg,
+            )
+            if advanced_xai_results.get("trust_score") is not None:
+                run.trust_score = float(advanced_xai_results["trust_score"])
+            if advanced_xai_results.get("quality_score") is not None:
+                run.quality_score = float(advanced_xai_results["quality_score"])
+            record_audit(
+                AuditEventType.XAI_GENERATED,
+                user_id=user.id,
+                case_id=evidence.case_id,
+                evidence_id=evidence.id,
+                analysis_id=run.id,
+                details={
+                    "advanced": True,
+                    "methods_run": advanced_xai_results.get("methods_run", []),
+                    "investigation_id": investigation.investigation_id,
+                },
+            )
 
         payload = {
             "investigation": investigation.to_dict(),
             "explanation": explanation_meta,
+            "advanced_xai_results": advanced_xai_results,
         }
         run.raw_result_json = json.dumps(payload, default=str)
         run.status = AnalysisStatus.COMPLETED.value
@@ -131,6 +180,9 @@ def analyze_evidence(
             run.prediction,
         )
         return run
+    except MayaProductError:
+        db.session.rollback()
+        raise
     except Exception as exc:
         logger.exception("Analysis failed evidence=%s", evidence_id)
         run.status = AnalysisStatus.FAILED.value
@@ -144,10 +196,12 @@ def analyze_evidence(
             case_id=evidence.case_id,
             evidence_id=evidence.id,
             analysis_id=run.id,
-            details={"error": str(exc)},
+            details={"error_type": type(exc).__name__},
         )
         db.session.commit()
-        raise
+        from backend.app.exceptions import AnalysisProcessingError
+
+        raise AnalysisProcessingError("Analysis processing failed. See logs for details.") from exc
 
 
 def get_analysis(user: User, analysis_id: int) -> AnalysisRun:

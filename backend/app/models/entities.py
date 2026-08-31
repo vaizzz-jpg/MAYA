@@ -144,6 +144,8 @@ class AnalysisRun(db.Model):
     dataset_version: Mapped[str | None] = mapped_column(String(128), nullable=True)
     explainer_name: Mapped[str | None] = mapped_column(String(64), nullable=True)
     generate_explanation: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    trust_score: Mapped[float | None] = mapped_column(Float, nullable=True)
+    quality_score: Mapped[float | None] = mapped_column(Float, nullable=True)
     artifact_dir: Mapped[str | None] = mapped_column(String(512), nullable=True)
     heatmap_path: Mapped[str | None] = mapped_column(String(512), nullable=True)
     overlay_path: Mapped[str | None] = mapped_column(String(512), nullable=True)
@@ -185,11 +187,40 @@ class AuditLog(db.Model):
     user: Mapped[User | None] = relationship("User", back_populates="audit_logs")
 
 
+class InvestigationReport(db.Model):
+    __tablename__ = "investigation_reports"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    report_number: Mapped[str] = mapped_column(String(64), unique=True, nullable=False, index=True)
+    case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id"), nullable=False, index=True)
+    evidence_id: Mapped[int] = mapped_column(Integer, ForeignKey("evidence.id"), nullable=False, index=True)
+    analysis_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("analysis_runs.id"), nullable=False, index=True
+    )
+    investigation_id: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    generated_by_user_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("users.id"), nullable=False, index=True
+    )
+    report_format: Mapped[str] = mapped_column(String(16), nullable=False, default="pdf")
+    storage_path: Mapped[str] = mapped_column(String(512), nullable=False)
+    file_size_bytes: Mapped[int] = mapped_column(Integer, nullable=False)
+    sha256_hash: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    title: Mapped[str] = mapped_column(String(512), nullable=False, default="MAYA Investigation Report")
+    investigator_notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    generated_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=_utcnow, index=True)
+
+    case: Mapped[Case] = relationship("Case")
+    evidence: Mapped[Evidence] = relationship("Evidence")
+    analysis: Mapped[AnalysisRun] = relationship("AnalysisRun")
+    generator: Mapped[User] = relationship("User")
+
+
 # Import side-effect for create_all: models must be imported before db.create_all()
 __all__ = [
     "AnalysisRun",
     "AuditLog",
     "Case",
     "Evidence",
+    "InvestigationReport",
     "User",
 ]

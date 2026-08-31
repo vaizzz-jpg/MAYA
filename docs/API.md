@@ -1,0 +1,284 @@
+# MAYA API Documentation (Backend JSON API — JSON REST API served under the `/api` prefix. Uses Flask-Login session cookies; clients POST credentials once per session.
+
+All responses use the envelope:
+
+```json
+{"ok": true, "data": ..., "message": "optional"}
+{"ok": false, "error": "error_code", "message": "Human readable"}
+```
+
+## Authentication header: none (Flask sessions cookie). Cookie is set after `Set-Cookie` header returned by `/api/auth/login`.
+
+## 1. Auth (`/api/auth`)
+
+### `POST /api/auth/register`
+
+- **Auth:** Public (unless `ALLOW_PUBLIC_REGISTRATION=false`)
+- **Body (JSON):** `{email, username, password, full_name?}`
+- **Success (201):** User object
+- **Errors:** 400 validation, 409 conflict
+
+### `POST /api/auth/login`
+
+- **Auth:** Public
+- **Body (JSON):** `{login: email_or_username, password}`
+- **Success (200):** User object + session cookie
+- **Errors:** 401 authentication_error
+
+### `POST /api/auth/logout`
+
+- **Auth:** Required
+- **Success (200):** `{ok:true, message:"Logged out"}`
+
+### `GET /api/auth/me`
+
+- **Auth:** Required
+- **Success (200):** Current user object
+
+User object shape:
+
+```json
+{
+  "id": 1,
+  "email": "analyst@maya.test",
+  "username": "analyst",
+  "full_name": "Test User",
+  "role": "INVESTIGATOR | ADMIN",
+  "is_active": true,
+  "created_at": "2026-08-30T12:00:00",
+  "last_login_at": "..."
+}
+```
+
+## 2. Cases (`/api/cases`)
+
+### `POST /api/cases`
+
+- **Auth:** Required
+- **Body:** `{title, description?, priority?: LOW|MEDIUM|HIGH}`
+- **201:** Case object
+- Ownership: created_by_user_id = current user
+
+### `GET /api/cases`
+
+- **Auth:** Required
+- **Returns:** Array of case objects; ADMIN sees all; INVESTIGATOR only own cases.
+
+### `GET /api/cases/{case_id}`
+
+- **Auth:** Required (ownership check)
+- **Returns:** Case object or 403/404.
+
+### `PATCH /api/cases/{case_id}`
+
+- **Auth:** Required (owner or admin)
+- **Body:** `{title?, description?, status?, priority?}`
+- Cannot modify ARCHIVED cases.
+
+### `POST /api/cases/{case_id}/close`
+
+- **Auth:** Required (owner or admin)
+- Sets status=CLOSED + closed_at timestamp.
+
+Case object:
+
+```json
+{
+  "case_id": 1,
+  "case_number": "CASE-2026-000001",
+  "title": "..",
+  "description": "..",
+  "status": "OPEN | IN_PROGRESS | CLOSED | ARCHIVED",
+  "priority": "MEDIUM",
+  "created_by": 1,
+  "created_at": "...",
+  "updated_at": "...",
+  "closed_at": null
+}
+```
+
+## 3. Evidence (`/api/evidence`)
+
+### `POST /api/evidence/cases/{case_id}`
+
+- **Auth:** Required (case owner)
+- **Content-Type:** `multipart/form-data`
+- **Fields:**
+  - `file`: image file (`.png/jpg/jpeg/bmp/webp; max 16 MB)
+  - `notes` (optional string): human notes
+- **201:** Evidence metadata + SHA-256 computed server-side
+- Client-supplied hashes are NEVER trusted.
+
+### `GET /api/evidence/cases/{case_id}`
+
+- **Auth:** Required (ownership)
+- List all evidence items for a case.
+
+### `GET /api/evidence/{evidence_id}`
+
+- **Auth:** Required (ownership check)
+- Evidence metadata.
+
+### `POST /api/evidence/{evidence_id}/verify-integrity`
+
+- **Auth:** Required (ownership check)
+- Recomputes SHA-256 of the on-disk file; compares to `evidence.sha256_hash`.
+- Returns:
+
+```json
+{
+  "evidence_id": 5,
+  "stored_sha256": "original-hash...",
+  "current_sha256": "current-hash-or-empty",
+  "integrity_status": "VALID | MODIFIED | MISSING | ERROR"
+}
+```
+
+Evidence object:
+
+```json
+{
+  "evidence_id": 1,
+  "case_id": 1,
+  "original_filename": "evidence.png",
+  "stored_filename": "uuid.png",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "file_size": 12345,
+  "sha256": "64-hex-chars",
+  "status": "UPLOADED | PROCESSING | ANALYZED | FAILED | ARCHIVED",
+  "analysis_status": "NONE | QUEUED | PROCESSING | COMPLETED | FAILED",
+  "uploaded_by": 1,
+  "created_at": "...",
+  "storage_path": "cases/1/uuid.png",
+  "notes": null
+}
+```
+
+## 4. Analysis / Investigations
+
+### `POST /api/evidence/{evidence_id}/analyze`
+
+- **Auth:** Required (ownership check)
+- **Body (JSON):**
+
+```json
+{
+  "generate_explanation": true,
+  "explainer": "gradcam",
+  "verify_before_analyze": true,
+  "explainers": ["gradcam","gradcam_plus_plus","layercam","scorecam","eigencam"],
+  "advanced_xai": {
+    "shap": true,
+    "faithfulness": true,
+    "counterfactual": true,
+    "fusion": true,
+    "trust": true,
+    "multi_explainer": false
+  }
+}
+```
+
+- If `advanced_xai` is omitted or `null` → basic inference + basic explainer.
+- `explainers` list can be `["gradcam"]` → single explainer; > 1 → multi-explainer.
+- `advanced_xai` with expensive methods (SHAP, fusion, counterfactual, faithfulness, trust) run ONLY if opted-in.
+- **201:** AnalysisRun object (below); status=COMPLETED or error=FAILED with error_message.
+
+### `GET /api/analysis/{analysis_id}`
+
+- **Auth:** Required (ownership check)
+- Returns full analysis object.
+
+### `GET /api/investigations/{analysis_id}`
+
+- **Auth:** Required; alias for above (same result).
+
+Analysis / Report Generation
+
+### `POST /api/analysis/{analysis_id}/report`
+
+- **Auth:** Required (analysis owner)
+- **Body:** `{investigator_notes?:string, format?:"pdf"}`
+- Generates PDF forensic report PDF.
+- **201:** Report object.
+
+### `GET /api/analysis/{analysis_id}/reports`
+
+- **Auth:** Required (ownership)
+- List generated reports for this analysis.
+
+### `GET /api/reports/{report_id}`
+
+- **Auth:** Required (ownership)
+- Report metadata.
+
+### `GET /api/reports/{report_id}/download`
+
+- **Auth:** Required (ownership)
+- Binary download of PDF (path traversal safe).
+
+AnalysisRun object:
+
+```json
+{
+  "analysis_id": 1,
+  "investigation_id": "INV-2026-000001",
+  "evidence_id": 1,
+  "case_id": 1,
+  "prediction": "REAL | FAKE",
+  "confidence": 72.3,
+  "analysis_status": "COMPLETED",
+  "model_name": "efficientnet_b0",
+  "model_version": "sprint3.2-best",
+  "dataset_version": "v1",
+  "artifact_dir": "/abs/path/to/artifacts/investigations/INV-..",
+  "trust_score": 0.81,
+  "quality_score": 0.75,
+  "advanced_xai_results": {"methods_run":[...],"trust":{...},
+  "error_message": null,
+  "started_at":"...","completed_at":"...",
+  "explanation": {"explainer":"gradcam","heatmap":"...","overlay":"...","explanation_json":"..."}
+}
+```
+
+## 6. Audit (`/api/audit`)
+
+### `GET /api/audit`
+
+- **Auth:** Required
+- ADMIN sees all rows; regular user only rows with their user_id.
+- Limit 200 rows ordered by timestamp desc.
+
+```json
+{
+  "audit_id": 5,
+  "user_id": 1,
+  "case_id": 1,
+  "evidence_id": 1,
+  "analysis_id": 1,
+  "event_type": "ANALYSIS_COMPLETED",
+  "timestamp: "2026-08-30T12:00:00",
+  "details": {...}
+}
+```
+
+Audit event types:
+
+`USER_REGISTERED`, `USER_LOGIN`, `USER_LOGOUT`,
+`CASE_CREATED`, `CASE_UPDATED`, `CASE_CLOSED`,
+`EVIDENCE_UPLOADED`, `EVIDENCE_ACCESSED`, `EVIDENCE_VERIFIED`,
+`ANALYSIS_STARTED`, `ANALYSIS_COMPLETED`, `ANALYSIS_FAILED`,
+`XAI_GENERATED`, `REPORT_GENERATED`
+
+## 7. Error codes
+
+| HTTP | error_code | Meaning |
+|------|--------------|---------|
+| 400 | validation_error | Body/args invalid |
+| 400 | invalid_evidence | Bad upload |
+| 401 | authentication_error | Login required / bad credentials |
+| 403 | authorization_error | Forbidden (ownership / role) |
+| 404 | not_found / case_not_found / evidence_not_found / analysis_not_found | Missing resource |
+| 409 | conflict | Duplicate |
+| 500 | analysis_processing_error | AI/XAI processing error |
+| 500 | unhandled_error | Server error (safe message) |

@@ -38,8 +38,24 @@ class InferencePipeline:
         self.loader = model_loader or ModelLoader(self.config)
         self.id_gen = InvestigationIDGenerator(self.config.id_state_path)
 
-    def run(self, image_path: Path | str) -> InvestigationResult:
-        """Execute the full investigation workflow for one image."""
+    def run(
+        self,
+        image_path: Path | str,
+        *,
+        artifact_dir_override: Path | str | None = None,
+    ) -> InvestigationResult:
+        """Execute the full investigation workflow for one image.
+
+        Parameters
+        ----------
+        image_path:
+            Path to the image under analysis.
+        artifact_dir_override:
+            Optional directory to use for writing inference artifacts. When
+            omitted, ``self.config.artifact_dir`` (the Sprint 3.4 default) is
+            used. The product backend passes the investigation-specific path
+            so every run lands inside ``artifacts/investigations/{INV-ID}/``.
+        """
 
         path = ensure_file(Path(image_path))
         logger.info("Inference pipeline start image=%s", path)
@@ -87,7 +103,12 @@ class InferencePipeline:
             threshold_decision=decision.threshold_decision,
         )
 
-        write_inference_artifacts(result, self.config.artifact_dir)
+        target_artifact_dir = (
+            Path(artifact_dir_override)
+            if artifact_dir_override is not None
+            else self.config.artifact_dir
+        )
+        write_inference_artifacts(result, target_artifact_dir)
         logger.info(
             "Pipeline complete id=%s prediction=%s conf=%.2f%%",
             result.investigation_id,

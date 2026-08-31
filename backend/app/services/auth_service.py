@@ -96,4 +96,18 @@ def authenticate_user(*, login: str, password: str) -> User:
 
 
 def logout_current_user() -> None:
+    from flask_login import current_user as _cu
+
+    user_id = None
+    username = None
+    if _cu.is_authenticated:
+        user_id = int(_cu.id)
+        username = getattr(_cu, "username", None)
     logout_user()
+    if user_id is not None:
+        record_audit(
+            AuditEventType.USER_LOGOUT,
+            user_id=user_id,
+            details={"username": username} if username else {},
+        )
+        db.session.commit()
